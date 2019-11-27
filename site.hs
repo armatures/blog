@@ -1,17 +1,17 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
-import           Hakyll
-
+import Data.Monoid (mappend)
+import Hakyll (applyTemplateList, buildTags, compile, composeRoutes, constField,
+               copyFileCompiler, dateField, defaultContext, defaultHakyllReaderOptions, fromFilePath,
+               defaultHakyllWriterOptions, fromCapture, getRoute, gsubRoute, hakyll, idRoute, itemIdentifier,
+               loadAll, loadAndApplyTemplate, loadBody, makeItem, match, modificationTimeField, mapContext,
+               pandocCompilerWithTransformM, relativizeUrls, route, setExtension, pathField, preprocess,
+               tagsField, tagsRules, templateCompiler, version, Compiler, Context, Identifier, Item, Pattern, Rules, Tags, unsafeCompiler, compressCssCompiler, fromList, pandocCompiler, create, recentFirst, listField, getResourceBody, applyAsTemplate, templateBodyCompiler)
 
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "static/*" $ do
+    match (fromList ["images/*", "fonts/**"]) $ do
         route   idRoute
         compile copyFileCompiler
 
