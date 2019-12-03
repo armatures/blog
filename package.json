@@ -1,0 +1,12 @@
+{
+  "name": "blog",
+  "description": "a blog by armatures",
+  "devDependencies": {
+    "netlify-cli": "2.21.0"
+  },
+  "scripts": {
+    "watch": "stack exec site watch",
+    "deploy": "netlify deploy",
+    "build": "stack exec site build"
+  }
+}
