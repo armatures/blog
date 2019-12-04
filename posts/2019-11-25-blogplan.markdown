@@ -1,7 +1,6 @@
-
----  
-title: Where to Blog?  
----  
+---
+title: Where to Blog?
+---
   
 This post compares different blogging options I considered when choosing to put my writing online.
 
