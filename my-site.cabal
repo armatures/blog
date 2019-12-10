@@ -5,7 +5,20 @@ cabal-version:      >= 1.10
 
 executable site
   main-is:          site.hs
+  other-modules:
+    PandocFilterGraphviz
   build-depends:    base == 4.*
+                  , base64-bytestring
+                  , byteable
+                  , bytestring
+                  , containers
+                  , cryptohash
+                  , directory
+                  , filepath
                   , hakyll == 4.13.*
+                  , pandoc
+                  , pandoc-types
+                  , process
+                  , text
   ghc-options:      -threaded
   default-language: Haskell2010

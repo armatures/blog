@@ -1,0 +1,18 @@
+---
+title: Decision Trees as a Teaching Tool
+---
+
+Recently I encountered the idea of [fast-and-frugal trees](https://en.wikipedia.org/wiki/Fast-and-frugal_trees) through [an Econtalk conversation with Gerd Gigerenzer](https://www.econtalk.org/gerd-gigerenzer-on-gut-feelings/). I have long been interested in graphical representations of information and I want to explore applications of this idea.
+
+## What's This, Then?
+
+A first take on a fast-and-frugal tree<label for="sn-thanks" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-thanks" class="margin-toggle">
+  <span class="sidenote">
+Tree-rendering thanks goes to Justus Wilhelm's great post [Hakyll on Netlify](https://www.justus.pw/posts/2019-09-01-hakyll-on-netlify.html) and the [repo for that blog](https://github.com/justuswilhelm/personal-website), which is open-source</span>:
+```graphviz
+digraph {
+  "Are any ideas in the market viable?" -> "Have you syndicated any of them?" [ label="yes" ]
+  }
+```
+

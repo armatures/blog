@@ -1,17 +1,19 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import Data.Monoid (mappend)
+import PandocFilterGraphviz (renderAll, stripHeading)
 import Hakyll (applyTemplateList, buildTags, compile, composeRoutes, constField,
                copyFileCompiler, dateField, defaultContext, defaultHakyllReaderOptions, fromFilePath,
                defaultHakyllWriterOptions, fromCapture, getRoute, gsubRoute, hakyll, idRoute, itemIdentifier,
                loadAll, loadAndApplyTemplate, loadBody, makeItem, match, modificationTimeField, mapContext,
                pandocCompilerWithTransformM, relativizeUrls, route, setExtension, pathField, preprocess,
                tagsField, tagsRules, templateCompiler, version, Compiler, Context, Identifier, Item, Pattern, Rules, Tags, unsafeCompiler, compressCssCompiler, fromList, pandocCompiler, create, recentFirst, listField, getResourceBody, applyAsTemplate, templateBodyCompiler)
+import Text.Pandoc.Walk (walk, walkM)
 
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match (fromList ["images/*", "fonts/**"]) $ do
+    match (fromList ["images/*", "fonts/**", "graphviz-images/*.svg"]) $ do
         route   idRoute
         compile copyFileCompiler
 
@@ -27,7 +29,7 @@ main = hakyll $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ customPostPandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
@@ -69,3 +71,10 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+    
+customPostPandocCompiler :: Compiler (Item String)
+customPostPandocCompiler =
+  pandocCompilerWithTransformM
+    defaultHakyllReaderOptions
+    defaultHakyllWriterOptions
+    (unsafeCompiler . walkM renderAll)
