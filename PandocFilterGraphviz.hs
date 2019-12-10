@@ -37,7 +37,7 @@ import           Crypto.Hash
 
 import           Data.Byteable          (toBytes)
 import           Data.ByteString        (ByteString)
-import qualified Data.ByteString.Base64 as B64
+import qualified Data.ByteString.Base16 as B16
 import qualified Data.ByteString.Char8  as C8
 
 import qualified Data.Map.Strict        as M
@@ -59,7 +59,7 @@ hexSha3_512 :: ByteString -> ByteString
 hexSha3_512 bs = C8.pack $ show (hash bs :: Digest SHA3_512)
 
 sha :: Text -> Text
-sha = E.decodeUtf8 . hexSha3_512 . B64.encode . E.encodeUtf8
+sha = E.decodeUtf8 . hexSha3_512 . B16.encode . E.encodeUtf8
 
 fileName4Code :: Text -> Text -> Maybe Text -> FilePath
 fileName4Code name source ext = filename
