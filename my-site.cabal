@@ -8,7 +8,7 @@ executable site
   other-modules:
     PandocFilterGraphviz
   build-depends:    base == 4.*
-                  , base64-bytestring
+                  , base16-bytestring
                   , byteable
                   , bytestring
                   , containers
