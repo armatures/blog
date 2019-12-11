@@ -13,7 +13,15 @@ import Text.Pandoc.Walk (walk, walkM)
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match (fromList ["images/*", "fonts/**", "graphviz-images/*.svg"]) $ do
+    match "images/*" $ do
+        route   idRoute
+        compile copyFileCompiler
+
+    match "fonts/**" $ do
+        route   idRoute
+        compile copyFileCompiler
+
+    match "graphviz-images/*.svg" $ do
         route   idRoute
         compile copyFileCompiler
 
