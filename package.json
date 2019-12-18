@@ -5,7 +5,7 @@
     "netlify-cli": "2.21.0"
   },
   "scripts": {
-    "watch": "stack exec site clean && stack exec site build && stack exec site watch",
+    "watch": "stack exec site watch",
     "deploy": "netlify deploy --dir=_site",
     "build": "stack exec site build"
   }
