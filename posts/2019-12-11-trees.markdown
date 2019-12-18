@@ -4,7 +4,7 @@ title: Decision Trees as a Teaching Tool
 
 Recently I encountered the idea of [fast-and-frugal trees](https://en.wikipedia.org/wiki/Fast-and-frugal_trees) through [an Econtalk conversation with Gerd Gigerenzer](https://www.econtalk.org/gerd-gigerenzer-on-gut-feelings/). I have long been interested in graphical representations of information and I want to explore applications of this idea.
 
-## What's This, Then?
+## Diagrams with Pandoc!
 
 A first take on a fast-and-frugal tree<label for="sn-thanks" class="margin-toggle sidenote-number"></label>
   <input type="checkbox" id="sn-thanks" class="margin-toggle">
@@ -16,3 +16,26 @@ digraph {
   }
 ```
 
+And here's a Message Sequence Chart:
+```msc
+    msc {
+      hscale = "2";
+
+      a,b,c;
+
+      a->b [ label = "ab()" ] ;
+      b->c [ label = "bc(TRUE)"];
+      c=>c [ label = "process(1)" ];
+      c=>c [ label = "process(2)" ];
+      ...;
+      c=>c [ label = "process(n)" ];
+      c=>c [ label = "process(END)" ];
+      a<<=c [ label = "callback()"];
+      ---  [ label = "If more to run", ID="*" ];
+      a->a [ label = "next()"];
+      a->c [ label = "ac1()\nac2()"];
+      b<-c [ label = "cb(TRUE)"];
+      b->b [ label = "stalled(...)"];
+      a<-b [ label = "ab() = FALSE"];
+    }
+```
