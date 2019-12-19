@@ -56,5 +56,5 @@ main = toJSONFilter behead
 
 My first working Pandoc filter! This felt like a substantial win: it's surprisingly harder than you think to find examples of viable Pandoc filters written in Haskell. I expect the interface changed recently, so this post might be helpful. I'll also open a pull request to update the filter docs.
 
-
+My to-do list is getting away from me, and I won't have time to return to this development for a week at least. I am sad to see a lack of syntax highlighting in the haskell code in this post, and I'd like to get back to this to fix it... but in the spirit of publishing things where possible, I'll leave this here.
 
