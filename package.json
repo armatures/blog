@@ -7,6 +7,6 @@
   "scripts": {
     "watch": "stack exec site watch",
     "deploy": "netlify deploy --dir=_site",
-    "build": "stack exec site build"
+    "build": "stack build && rm graphviz-images/* && rm mscgen-images/* && stack exec site build"
   }
 }
