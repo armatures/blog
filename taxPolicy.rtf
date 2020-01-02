@@ -1,0 +1,89 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww33400\viewh19280\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs72 \cf0 I wonder if part of the problem with the IRS tax forms is the lack of abstraction.\
+Instructions are always framed in terms of references to other schedules and forms and their resulting sums, without explaining the higher-level strategy.\
+\
+Let's start with the simplest possible income tax policy, and then add some policy goals, and see how that complicates things.\
+\
+## The simplest possible income tax\
+\
+We will start with a flat tax. For every dollar a person makes, our government takes 10% of that dollar. \
+```graphviz\
+    strict digraph \{\
+          income [label="income"]\
+          tax [label="tax = income * 0.1"]\
+\
+  income -> tax\
+  \}\
+```\
+\
+We have one input and one output. This is simple, and though people would still have to track lots of sources of income, nobody is going to get lost in the math.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 ## The simplest progressive income tax\
+\
+This would be an unusual tax policy: most tax regimes take a higher percentage of wealthier tax payers' income, because these tax payers are more capable of paying.\
+Let's introduce the smallest possible change to our tax policy to address this. \
+\
+```graphviz\
+    strict digraph \{\
+          income [label="income"]\
+          tax [label="tax = (income - 20,000) * 0.2"]\
+\
+  income -> tax\
+  \}\
+```\
+\
+This is as far as I got on this post without getting distracted by tools. Now the post moves into meta-land, more concerned with the technical details of the display of functions and graphs than the actually displaying them.\
+\
+From this writing, I wanted to display two types of content I don't yet support in this blog: a piecewise math function, and the graph of this function. The best options are probably LaTeX and R, respectively. I have them both working outside of this post, actually, and it's probably worth pulling the rendered images in by hand. Time is always limited, and I don't know how often I will want to render things like this.\
+\
+## rendering math\
+\
+Given a file `piecewise.tex` containing some LaTeX math like this:\
+$$\
+\\usepackage\{amsmath\}\
+\\title\{piecewise\}\
+\
+\\[ \\begin\{cases\}\
+      0 & x\\leq 20,000 \\\\\
+      \{0.2\} (x - 20,000) & 20,000\\leq x\
+   \\end\{cases\}\
+\\]\
+$$\
+\
+Pandoc can render it by running: `pandoc piecewise.tex -s --mathml  -o piecewise.html`\
+\
+## rendering the graph\
+\
+I decided this would be best accomplished using R. I wrote the following R in a file named `line.r`:\
+```r\
+x = c(0,10)\
+income = c(0,10)\
+tax = c(0,1)\
+\
+#create new graphics device\
+png(filename="basicTax.png")\
+\
+# plot empty axes\
+plot(0,0,xlim = c(0,10),ylim = c(0,10),xlab="income", ylab="tax", type = "n")\
+\
+lines(x, income, type='l')\
+lines(x, tax, type='l',col= "blue")\
+\
+x2 <- c(0,2,12)\
+tax2 <- c(0,0,2)\
+lines(x2, tax2, type='l',col= "red")\
+\
+# tax1 = c(0,2,1)\
+# lines(tax1, type='b',col= colors[1])\
+\
+# close graphics device\
+dev.off()\
+```\
+This can be converted into a png by running: ` r -f line.r`. It would be nice to decouple the contents of the file from the name of the file it writes to, but having written approximately no R before this, I decided this was enough trouble to call it a success. }
