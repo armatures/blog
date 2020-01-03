@@ -64,21 +64,65 @@ The functional form of this tax is a little trickier than our initial tax policy
       {0.2} (x - 20,000) &amp; 20,000\leq x
    \end{cases}</annotation></semantics></math></p>
 
-I can think of two reasonable ways to graph these two simple tax policies: a graph of the total tax, or a representation of the marginal rate. Here's a graph of the first option: the flat tax is in blue, and the simple progressive tax is in red. To use such a graph, find a level of income on the x axis. The y-axis shows the tax obligation for this income level.
-
-<img src="/static/basicTax.png"/>
-
-Another option is to show the tax rate itself, rather than the total tax obligation, on the y-axis. This is _not_ useful for a tax payer trying to find their tax obligation, but this illustrates a common misconception about tax brackets. Obviously, the big jump at $20,000 is significant, and it's easy for a naive reader to see this graph and think they are looking at their tax rate on the y-axis. In reality, they're looking at their _marginal_ rate on the y-axis, and they need to calculate the area under the line to the left of their income if they want to find their total tax obligation.
-you might find this form more intuitive<label for="sn-derivative" class="margin-toggle sidenote-number"></label>
+I can think of two reasonable ways to graph these two tax policies: the first is by graphing the marginal rate.
+This is _not_ useful for a tax payer trying to find their tax obligation, but this illustrates a common misconception about tax brackets. Obviously, the big jump at $20,000 is significant, and it's easy for a naive reader to see this graph and think they are looking at their "effective" tax rate on the y-axis.
+<label for="sn-effective" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-effective" class="margin-toggle">
+  <span class="sidenote">
+  "Effective" here means "the tax rate you're actually paying." For the flat tax, the effective rate is the same as the marginal rate, because the marginal rate never changes. The term [effective](https://en.wikipedia.org/wiki/Tax_rate#Effective) is ambiguous and depends on context for more complicated tax policies.
+  </span>
+In reality, they're looking at their _marginal_ rate on the y-axis, the rate that applies to the next dollar they make, and they need to calculate the area under the line to the left of their income if they want to find their total tax obligation.
+This is a simple graph that shows a common mistake people make when thinking about marginal tax rates: to read this graph correctly, you need to calculate the area under the curve to the left of your income, not just look at the rate on the y-axis.
+I've heard college graduates express concern about staying in a lower tax bracket, and I think this is because of confusion about a graph like this one:
+<label for="sn-derivative" class="margin-toggle sidenote-number"></label>
   <input type="checkbox" id="sn-derivative" class="margin-toggle">
   <span class="sidenote">
-  Mathy readers will notice that this is a graph of the derivative of the previous graph.
+  Mathy readers will notice that this is a graph of the derivative of the following graph.
   </span>
-.
 
 <img src="/static/basicTaxDerivative.png"/>
 
-This is the simplest and most intuitive representation of income tax I can come up with, and it seems much better than the usual exhaustive tabular representation.
+Another option is to show the total tax obligation, rather than the tax rate itself, on the y-axis.
+To use such a graph, find a level of income on the x axis. The y-axis shows the tax obligation for this income level. This is probably more useful than the previous graph, and de-emphasizes the discontinuity that's so prominent in the graph of the raw rate.
+
+<img src="/static/basicTax.png"/>
+
+This is the simplest and most intuitive representation of income tax I can come up with, and it's substantially different from the usual representation of the tax rate presented by the IRS.
+The IRS usually presents taxes in a tabular form. What does that look like? It is roughly the same as presenting the policies I showed above like so:
+
+| Income Greater Than    | And Income Less Than | Tax  |
+| :-------------: |:-------------:| -----:|
+| 0 | 20,000| 0 |
+| 20,000 | 21,000 | 100 |
+| 21,000 | 22,000 | 200 |
+| 22,000 | 23,000 | 300 |
+| 23,000 | 24,000 | 400 |
+| 24,000 | 25,000 | 500 |
+| 25,000 | 26,000 | 600 |
+| 26,000 | 27,000 | 700 |
+| 27,000 | 28,000 | 800 |
+| this is | tiresome | to write |
+
+This representation doesn't work very well for me. It is a very inefficient encoding of the data, and it does not describe the essential form of the function. It obscures the _form_ of the calculation, and because of this inefficient encoding, it is not feasible to display all the rows relevant to all readers. I have been trying to figure out what is so frustrating to me about the IRS' approach to taxes, and this choice of representation is close to the pith of it. Calculating and laying out the table introduces the potential for errors, as does reading it.
+Which begs the question, why are taxes usually represented in the tabular form?
+<label for="sn-tabular" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-tabular" class="margin-toggle">
+  <span class="sidenote">
+  [The IRS' 1040](https://www.irs.gov/pub/irs-pdf/i1040tt.pdf) includes a 10-page tax table. This table includes calculations of tax obligations for every income under $100,000, and every filing status, in bands of $50. It has 2,000 entries for each filing status, and 4 statuses, so it's a table with 8,000 cells of data. This is still desperately incomplete, and ends with the sad order "**100,000 or over** use the Tax Computation Worksheet"
+  </span>
+
+I'm not sure what the motivation is. Maybe adding ten pages to the tax code is not seen as a negative, or multiplication is considered too difficult for tax-payers. Maybe the table lookup is not seen as a negative, the clerical work of creating the table is not a source of errors, and the incompleteness of the specification (ending after 100,000) is not seen as a negative.
+In a place where everyone has pocket calculators (this is our country), the calculation of the tax rate has the advantage of better communicating the _intention_ of the policy, taking much less space, time and resources to communicate, and being consistent across all taxpayers.
+
+There is another possible argument: this table is a holdover from a time before the internet, and it really _was_ too much to ask people to do multiplication themselves. Given the other complexities of the tax code, this doesn't seem to hold much weight though. Maybe there is an assumption that for some income levels, multiplication and more complicated functional specification is acceptable, but for most people, taxes should be easy.
+This sort of works, but there are many other complexities in the tax code: simplicity is _definitely not_ a guiding principle for the authors of this document. This may be my motivation in writing this post: I am interested in exploring simpler tax solutions, or at least more efficient ways of communicating them. This is interesting to me because as is, I can't tell what's going on, and I feel that as [vital as simplicity is in other domains](https://en.wikipedia.org/wiki/Minimum_message_length), it must be important here<label for="sn-simplest-best" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-simplest-best" class="margin-toggle">
+  <span class="sidenote">
+  I also have a sensibility from writing software that a less-verbose solution to a problem is better. Brevity in general is a positive, but the real goal is creating something easier to read, write, and maintain. I am not sure how this is usually framed, but "writing team code" (code the whole team can read) is a phrasing my friend Andrew Kitchen used that resonated with me. Let me know if you have a better/more conventional way to state this.
+  </span>
+.
+
+
 
 Why don't we see any attempts at making tax policy more approachable?
-The IRS has a full plate defining and enforcing tax policy: their mission probably doesn't include education, or trying to make things more approachable. But, it _would_ be cheaper for them to have people do their taxes right the first time. Probably. Assuming this is the case, this feels like a valuable approach. A functional form of a tax like this would save people from looking up the tax they owe in a [dreadful table](). In any case, just graphing the tax like this would do a lot to help people understand what "progressive marginal income tax" means.
+The IRS has a full plate defining and enforcing tax policy: their mission probably doesn't include education, or trying to make things more approachable. But, it _would_ be cheaper for them to have people do their taxes right the first time. Probably. Assuming this is the case, this feels like a valuable approach. A functional form of a tax like this would save people from looking up the tax they owe in a dreadful table. In any case, just graphing the tax like this would do a lot to help people understand what "progressive marginal income tax" means.
