@@ -1,3 +1,5 @@
+library(tidyverse)
+
 # R program to plot line graph
 x = c(0,2,10)
 
@@ -7,16 +9,19 @@ png(filename="static/basicTax.png")
 # plot empty axes
 plot(0,0,xlim = c(0,10),ylim = c(0,2),xlab="income ($10,000)", ylab="tax ($10,000)", type = "n")
 
-flatTax = c(0,0.2,1)
+flatTax = function(x){ 0.1 * x }
+tax1 = map(x, flatTax)
+lines(x, tax1, type='l',col= "blue")
 
-# lines(x, income, type='l')
-lines(x, flatTax, type='l',col= "blue")
-
-tax2 <- c(0,0,1.6)
+progressiveTax = function(i){
+  if(i<2){
+    0
+  }else{
+    (i-2) * 0.2
+  }
+}
+tax2 <- map(x, progressiveTax)
 lines(x, tax2, type='l',col= "red")
-
-# tax1 = c(0,2,1)
-# lines(tax1, type='b',col= colors[1])
 
 # close graphics device
 dev.off()
