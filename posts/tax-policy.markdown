@@ -122,7 +122,9 @@ This sort of works, but there are many other complexities in the tax code: simpl
   </span>
 .
 
+This is a graph of the tax brackets for 2020. Blue represents single filers, and the red line is married, filing jointly.
 
+<img src="../static/2020brackets.png"/>
 
 Why don't we see any attempts at making tax policy more approachable?
 The IRS has a full plate defining and enforcing tax policy: their mission probably doesn't include education, or trying to make things more approachable. But, it _would_ be cheaper for them to have people do their taxes right the first time. Probably. Assuming this is the case, this feels like a valuable approach. A functional form of a tax like this would save people from looking up the tax they owe in a dreadful table. In any case, just graphing the tax like this would do a lot to help people understand what "progressive marginal income tax" means.
