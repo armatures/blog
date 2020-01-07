@@ -122,9 +122,49 @@ This sort of works, but there are many other complexities in the tax code: simpl
   </span>
 .
 
-This is a graph of the tax brackets for 2020. Blue represents single filers, and the red line is married, filing jointly.
+These are graphs of the tax brackets for 2020. Blue represents single filers, and the red line is married, filing jointly. 
 
 <img src="../static/2020brackets.png"/>
+<img src="../static/2020bracketsZoomed.png"/>
 
-Why don't we see any attempts at making tax policy more approachable?
-The IRS has a full plate defining and enforcing tax policy: their mission probably doesn't include education, or trying to make things more approachable. But, it _would_ be cheaper for them to have people do their taxes right the first time. Probably. Assuming this is the case, this feels like a valuable approach. A functional form of a tax like this would save people from looking up the tax they owe in a dreadful table. In any case, just graphing the tax like this would do a lot to help people understand what "progressive marginal income tax" means.
+I wasn't sure how much to zoom in on these, but you get the idea. Here's the same thing in table form:
+
+### Income Tax Brackets for Single Taxpayers in 2020
+| Income Greater Than    | And Income Less Than | Tax Rate |
+| :-------------: |:-------------:| -----:|
+| 0 |9,875|10% |
+|9,875   |40,125|12% |
+|40,125|  85,525|22% |
+|85,525| 163,300|24% |
+|163,300|207,350|32% |
+|207,350|518,400|35% |
+|518,400|♾ |37%|
+
+
+### Income Tax Brackets for Married Taxpayers Filing Jointly in 2020
+| Income Greater Than    | And Income Less Than | Tax Rate |
+| :-------------: |:-------------:| -----:|
+| 0 |19,750|10% |
+|19,750|80,250|12% |
+|80,250|171,050|22% |
+|171,050|326,600|24% |
+|326,600|414,700|32% |
+|414,700|622,050|35% |
+|622,050|♾ |37%|
+
+The main thing that stands out to me about the 2020 tax brackets is the almost-doubling of the tax rate from 12% to 22%. It's also interesting that the dollar amount where this rate takes effect for married couples is double the dollar amount for single taxpayers. The other rate boundaries do not generally have this quality. Married rates are more favorable for most taxpayers, but the boundary for the top rate punishes marriage if both members of the couple receive outrageous compensation. Unfortanately we have a complicated tax code, but I imagine such a couple (where each partner is paid $500K) may file separately to avoid the 37% rate.
+<label for="sn-turbo" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-turbo" class="margin-toggle">
+  <span class="sidenote">
+I admit to getting confused by an article published by TurboTax. Given their interest in taxpayers not taking too much agency in doing their own taxes, I worry that it's deliberate. From their site:
+"The standard deduction for separate filers is far lower than that offered to joint filers.
+    In 2019, married filing separately taxpayers only receive a standard deduction of $12,200 compared to the $24,400 offered to those who filed jointly."
+    Isn't this a result of filing two returns, though? Wouldn't each return benefit from the standard deduction, making these equivalent?
+    </span>
+
+Here's the graph of the the marginal tax rate, which is a little more interesting to look at than those last graphs. The difference between the slopes are more difficult to discern, while graphing them like this makes them pretty obvious.
+
+<img src="/static/2020bracketsDerivative.png"/>
+
+There is _one_ more graph I'd like to try out, which is that of the effective tax rate. I'll graph the income divided by taxes paid to get a picture of what people actually end up paying.
+
