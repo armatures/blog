@@ -166,5 +166,9 @@ Here's the graph of the the marginal tax rate, which is a little more interestin
 
 <img src="/static/2020bracketsDerivative.png"/>
 
-There is _one_ more graph I'd like to try out, which is that of the effective tax rate. I'll graph the income divided by taxes paid to get a picture of what people actually end up paying.
+There is _one_ more graph I'd like to try out, which is that of the effective tax rate. I'll graph the income divided by taxes paid to get a picture of what people actually end up paying. Here is that graph (though I only graphed it for people filing singly).
+
+<img src="/static/effectiveRates2020.png"/>
+
+This graph looks different from the others, because I used Haskell to make it. I have an upcoming post about some of the difficulties I've had picking up R for these sorts of tasks, and after spending much of the day yesterday trying to make this graph, I turned to Haskell, had a great time, and made a nice graph. Maybe this time I'll learn my lesson and stick with Haskell-like languages for more of my work!
 
