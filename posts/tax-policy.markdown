@@ -64,22 +64,6 @@ The functional form of this tax is a little trickier than our initial tax policy
       {0.2} (x - 20,000) &amp; 20,000\leq x
    \end{cases}</annotation></semantics></math></p>
 
-I can think of two reasonable ways to graph these two tax policies: the first is by graphing the marginal rate.
-This is _not_ useful for a tax payer trying to find their tax obligation, but this illustrates a common misconception about tax brackets. Obviously, the big jump at $20,000 is significant, and it's easy for a naive reader to see this graph and think they are looking at their "effective" tax rate on the y-axis.
-<label for="sn-effective" class="margin-toggle sidenote-number"></label>
-  <input type="checkbox" id="sn-effective" class="margin-toggle">
-  <span class="sidenote">
-  "Effective" here means "the tax rate you're actually paying." For the flat tax, the effective rate is the same as the marginal rate, because the marginal rate never changes. The term [effective](https://en.wikipedia.org/wiki/Tax_rate#Effective) is ambiguous and depends on context for more complicated tax policies.
-  </span>
-In reality, they're looking at their _marginal_ rate on the y-axis, the rate that applies to the next dollar they make, and they need to calculate the area under the line to the left of their income if they want to find their total tax obligation.
-This is a simple graph that shows a common mistake people make when thinking about marginal tax rates: to read this graph correctly, you need to calculate the area under the curve to the left of your income, not just look at the rate on the y-axis.
-I've heard college graduates express concern about staying in a lower tax bracket, and I think this is because of confusion about a graph like this one:
-<label for="sn-derivative" class="margin-toggle sidenote-number"></label>
-  <input type="checkbox" id="sn-derivative" class="margin-toggle">
-  <span class="sidenote">
-  Mathy readers will notice that this is a graph of the derivative of the following graph.
-  </span>
-
 <img src="/static/basicTaxDerivative.png"/>
 
 Another option is to show the total tax obligation, rather than the tax rate itself, on the y-axis.
@@ -121,54 +105,4 @@ This sort of works, but there are many other complexities in the tax code: simpl
   I also have a sensibility from writing software that a less-verbose solution to a problem is better. Brevity in general is a positive, but the real goal is creating something easier to read, write, and maintain. I am not sure how this is usually framed, but "writing team code" (code the whole team can read) is a phrasing my friend Andrew Kitchen used that resonated with me. Let me know if you have a better/more conventional way to state this.
   </span>
 .
-
-These are graphs of the tax brackets for 2020. Blue represents single filers, and the red line is married, filing jointly. 
-
-<img src="../static/2020brackets.png"/>
-<img src="../static/2020bracketsZoomed.png"/>
-
-I wasn't sure how much to zoom in on these, but you get the idea. Here's the same thing in table form:
-
-### Income Tax Brackets for Single Taxpayers in 2020
-| Income Greater Than    | And Income Less Than | Tax Rate |
-| :-------------: |:-------------:| -----:|
-| 0 |9,875|10% |
-|9,875   |40,125|12% |
-|40,125|  85,525|22% |
-|85,525| 163,300|24% |
-|163,300|207,350|32% |
-|207,350|518,400|35% |
-|518,400|♾ |37%|
-
-
-### Income Tax Brackets for Married Taxpayers Filing Jointly in 2020
-| Income Greater Than    | And Income Less Than | Tax Rate |
-| :-------------: |:-------------:| -----:|
-| 0 |19,750|10% |
-|19,750|80,250|12% |
-|80,250|171,050|22% |
-|171,050|326,600|24% |
-|326,600|414,700|32% |
-|414,700|622,050|35% |
-|622,050|♾ |37%|
-
-The main thing that stands out to me about the 2020 tax brackets is the almost-doubling of the tax rate from 12% to 22%. It's also interesting that the dollar amount where this rate takes effect for married couples is double the dollar amount for single taxpayers. The other rate boundaries do not generally have this quality. Married rates are more favorable for most taxpayers, but the boundary for the top rate punishes marriage if both members of the couple receive outrageous compensation. Unfortanately we have a complicated tax code, but I imagine such a couple (where each partner is paid $500K) may file separately to avoid the 37% rate.
-<label for="sn-turbo" class="margin-toggle sidenote-number"></label>
-  <input type="checkbox" id="sn-turbo" class="margin-toggle">
-  <span class="sidenote">
-I admit to getting confused by an article published by TurboTax. Given their interest in taxpayers not taking too much agency in doing their own taxes, I worry that it's deliberate. From their site:
-"The standard deduction for separate filers is far lower than that offered to joint filers.
-    In 2019, married filing separately taxpayers only receive a standard deduction of $12,200 compared to the $24,400 offered to those who filed jointly."
-    Isn't this a result of filing two returns, though? Wouldn't each return benefit from the standard deduction, making these equivalent?
-    </span>
-
-Here's the graph of the the marginal tax rate, which is a little more interesting to look at than those last graphs. The difference between the slopes are more difficult to discern, while graphing them like this makes them pretty obvious.
-
-<img src="/static/2020bracketsDerivative.png"/>
-
-There is _one_ more graph I'd like to try out, which is that of the effective tax rate. I'll graph the income divided by taxes paid to get a picture of what people actually end up paying. Here is that graph (though I only graphed it for people filing singly).
-
-<img src="/static/effectiveRates2020.png"/>
-
-This graph looks different from the others, because I used Haskell to make it. I have an upcoming post about some of the difficulties I've had picking up R for these sorts of tasks, and after spending much of the day yesterday trying to make this graph, I turned to Haskell, had a great time, and made a nice graph. Maybe this time I'll learn my lesson and stick with Haskell-like languages for more of my work!
 

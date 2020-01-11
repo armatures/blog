@@ -6,7 +6,7 @@ import GHC.Float
 main :: IO ()
 main =
     let
-        incomes = [1000,2000..600000]
+        incomes = [100,200..600000]
         graphPoints :: [(Double, Double)]
         graphPoints = zip
             (fromIntegral <$> incomes)
