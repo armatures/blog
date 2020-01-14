@@ -11,12 +11,27 @@ main =
         graphPoints = zip
             (fromIntegral <$> incomes)
             (float2Double . effectiveTaxForIncome <$> incomes)
+
+        x_ticks = tail bracketBoundaries
+        x_labels' = fmap (show . (flip div 1000)) x_ticks
+        x_labels = getZipList $
+            (,) <$>
+            ZipList (fromIntegral <$> x_ticks) <*>
+            ZipList x_labels'
     in
     toFile def "static/effectiveRates2020.png" $ do
     layout_title .= "2020 Effective Income Tax Rates"
-    setColors [opaque blue, opaque red]
+
+    layout_y_axis . laxis_override .= axisGridHide
+    layout_y_axis . laxis_title .= "Effective Rate"
+
+    layout_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride x_labels )
+    layout_x_axis . laxis_title .= "Income ($000)"
+
     plot (line "single" [graphPoints])
 
+
+bracketBoundaries :: [Int]
 bracketBoundaries = [0, 9875, 40125, 85525, 163300, 207350, 518400, 600000]
 bracketRates = [0.10 ,0.12 ,0.22 ,0.24 ,0.32 ,0.35 ,0.37 ]
 allBrackets = getZipList $ Bracket <$>
