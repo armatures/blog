@@ -2,6 +2,8 @@ import           Control.Applicative
 import Graphics.Rendering.Chart.Easy
 import Graphics.Rendering.Chart.Backend.Cairo
 import GHC.Float
+import Data.List.Split (chunksOf)
+import Data.List (intersperse)
 
 main :: IO ()
 main =
@@ -12,12 +14,16 @@ main =
             (fromIntegral <$> incomes)
             (float2Double . effectiveTaxForIncome <$> incomes)
 
+        commafyNumber :: Int -> String
+        commafyNumber = reverse . concat . intersperse "," . (chunksOf 3) . reverse . show
+        -- commafyNumber = show
+
         x_ticks = tail bracketBoundaries
-        x_labels' = fmap (show . (flip div 1000)) x_ticks
-        x_labels = getZipList $
+        x_labels = fmap commafyNumber x_ticks
+        xTickLabels = getZipList $
             (,) <$>
             ZipList (fromIntegral <$> x_ticks) <*>
-            ZipList x_labels'
+            ZipList x_labels
     in
     toFile def "static/effectiveRates2020.png" $ do
     layout_title .= "2020 Effective Income Tax Rates"
@@ -25,7 +31,7 @@ main =
     layout_y_axis . laxis_override .= axisGridHide
     layout_y_axis . laxis_title .= "Effective Rate"
 
-    layout_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride x_labels )
+    layout_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
     layout_x_axis . laxis_title .= "Income ($000)"
 
     plot (line "single" [graphPoints])
