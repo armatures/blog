@@ -14,21 +14,27 @@ main =
             (fromIntegral <$> incomes)
             (float2Double . effectiveTaxForIncome <$> incomes)
 
-        commafyNumber :: Int -> String
-        commafyNumber = reverse . concat . intersperse "," . (chunksOf 3) . reverse . show
-        -- commafyNumber = show
+        scaleXTickLabels :: Int -> String
+        scaleXTickLabels = show . (flip div 1000)
 
         x_ticks = tail bracketBoundaries
-        x_labels = fmap commafyNumber x_ticks
+        x_labels = fmap scaleXTickLabels x_ticks
         xTickLabels = getZipList $
             (,) <$>
             ZipList (fromIntegral <$> x_ticks) <*>
             ZipList x_labels
+
+        yTicks = [5,10..40]
+        yTickLabels :: [(Double , String)]
+        yTickLabels = getZipList $
+            (,) <$>
+            ZipList (flip (/) 100 <$> yTicks) <*>
+            ZipList ((flip (++) "%" . show . floor) <$> yTicks)
     in
     toFile def "static/effectiveRates2020.png" $ do
     layout_title .= "2020 Effective Income Tax Rates"
 
-    layout_y_axis . laxis_override .= axisGridHide
+    layout_y_axis . laxis_override .= (axisGridHide . axisLabelsOverride yTickLabels)
     layout_y_axis . laxis_title .= "Effective Rate"
 
     layout_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
