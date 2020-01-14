@@ -8,7 +8,7 @@ import Data.List (intersperse)
 main :: IO ()
 main =
     let
-        incomes = [1000,2000..600000]
+        incomes = [100,200..600000]
         graphPoints :: (Int -> Double) -> [(Double, Double)]
         graphPoints f = zip
             (fromIntegral <$> incomes)
@@ -17,14 +17,15 @@ main =
         scaleXTickLabels :: Int -> String
         scaleXTickLabels = show . (flip div 1000)
 
-        x_ticks = tail bracketBoundaries
-        x_labels = fmap scaleXTickLabels x_ticks
-        xTickLabels = getZipList $
-            (,) <$>
-            ZipList (fromIntegral <$> x_ticks) <*>
-            ZipList x_labels
+        xTickLabels = scaleTicksAndLabel (tail bracketBoundaries)
+        rightTickLabels = scaleTicksAndLabel [0, 25000..400000]
 
-        yTicks = [5,10..40]
+        scaleTicksAndLabel ticks = getZipList $
+            (,) <$>
+            ZipList (fromIntegral <$> ticks) <*>
+            ZipList (fmap scaleXTickLabels ticks)
+
+        yTicks = [0,5..40]
         rateTickLabels :: [(Double , String)]
         rateTickLabels = getZipList $
             (,) <$>
@@ -37,8 +38,8 @@ main =
     layoutlr_left_axis . laxis_override .= (axisGridHide . axisLabelsOverride rateTickLabels)
     layoutlr_left_axis . laxis_title .= "Effective Rate"
 
-    layoutlr_right_axis . laxis_override .= axisGridHide
-    layoutlr_right_axis . laxis_title .= "Total Tax"
+    layoutlr_right_axis . laxis_override .= (axisGridHide . axisLabelsOverride rightTickLabels)
+    layoutlr_right_axis . laxis_title .= "Total Tax ($000)"
 
     layoutlr_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
     layoutlr_x_axis . laxis_title .= "Income ($000)"
