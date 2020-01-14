@@ -8,11 +8,11 @@ import Data.List (intersperse)
 main :: IO ()
 main =
     let
-        incomes = [100,200..600000]
-        graphPoints :: [(Double, Double)]
-        graphPoints = zip
+        incomes = [1000,2000..600000]
+        graphPoints :: (Int -> Double) -> [(Double, Double)]
+        graphPoints f = zip
             (fromIntegral <$> incomes)
-            (float2Double . effectiveTaxForIncome <$> incomes)
+            (f <$> incomes)
 
         scaleXTickLabels :: Int -> String
         scaleXTickLabels = show . (flip div 1000)
@@ -25,22 +25,26 @@ main =
             ZipList x_labels
 
         yTicks = [5,10..40]
-        yTickLabels :: [(Double , String)]
-        yTickLabels = getZipList $
+        rateTickLabels :: [(Double , String)]
+        rateTickLabels = getZipList $
             (,) <$>
             ZipList (flip (/) 100 <$> yTicks) <*>
             ZipList ((flip (++) "%" . show . floor) <$> yTicks)
     in
     toFile def "static/effectiveRates2020.png" $ do
-    layout_title .= "2020 Effective Income Tax Rates"
+    layoutlr_title .= "2020 Effective Income Tax Rates"
 
-    layout_y_axis . laxis_override .= (axisGridHide . axisLabelsOverride yTickLabels)
-    layout_y_axis . laxis_title .= "Effective Rate"
+    layoutlr_left_axis . laxis_override .= (axisGridHide . axisLabelsOverride rateTickLabels)
+    layoutlr_left_axis . laxis_title .= "Effective Rate"
 
-    layout_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
-    layout_x_axis . laxis_title .= "Income ($000)"
+    layoutlr_right_axis . laxis_override .= axisGridHide
+    layoutlr_right_axis . laxis_title .= "Total Tax"
 
-    plot (line "single" [graphPoints])
+    layoutlr_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
+    layoutlr_x_axis . laxis_title .= "Income ($000)"
+
+    plotLeft (line "Effective Rate" [graphPoints (float2Double . effectiveTaxForIncome)])
+    plotRight (line "Total Tax" [graphPoints (float2Double . taxForIncome)])
 
 
 bracketBoundaries :: [Int]
