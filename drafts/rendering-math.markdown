@@ -49,3 +49,4 @@ lines(x2, tax2, type='l',col= "red")
 dev.off()
 ```
 This can be converted into a png by running: `r -f line.r`. It would be nice to decouple the contents of the file from the name of the file it writes to, but having written approximately no R before this, I decided this was enough trouble to call it a success. 
+ 

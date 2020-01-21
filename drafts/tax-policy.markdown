@@ -1,6 +1,6 @@
 ---
 title: The Simplest Tax
-date: "January 3, 2020"
+date: "January 13, 2020"
 ---
 
 I wonder if part of the problem with the IRS tax forms is the lack of abstraction.
@@ -67,6 +67,7 @@ The functional form of this tax is a little trickier than our initial tax policy
 <img src="/static/basicTaxDerivative.png"/>
 
 Another option is to show the total tax obligation, rather than the tax rate itself, on the y-axis.
+
 To use such a graph, find a level of income on the x axis. The y-axis shows the tax obligation for this income level. This is probably more useful than the previous graph, and de-emphasizes the discontinuity that's so prominent in the graph of the raw rate.
 
 <img src="/static/basicTax.png"/>
