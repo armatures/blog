@@ -1,6 +1,7 @@
 ---
 title: "2020 Income Tax Brackets"
 date: "January 10, 2020"
+edited: "January 23, 2020"
 ---
 
 Usually, tax brackets are presented in tabular form. These are the rates for 2020:
@@ -74,15 +75,14 @@ There is _one_ more graph I'd like to try out, which is that of the effective ta
   <span class="sidenote">
   "Effective" here means "the tax rate you're actually paying." For the flat tax, the effective rate is the same as the marginal rate, because the marginal rate never changes. The term [effective](https://en.wikipedia.org/wiki/Tax_rate#Effective) is ambiguous and depends on context for more complicated tax policies.
   </span>
- I'll graph the income divided by taxes paid to get a picture of what people actually end up paying. Here is that graph (though I only graphed it for people filing singly). As before, the x-axis is income and the y-axis is tax rate (this time, effective tax rate).
+ I'll graph the income divided by taxes paid to get a picture of what people actually end up paying. Here is that graph (though I only graphed it for people filing singly). I've overlaid the total tax paid on the right axis, and graphed the marginal and effective rates on the left axis.
 <label for="sn-haskell" class="margin-toggle sidenote-number"></label>
   <input type="checkbox" id="sn-haskell" class="margin-toggle">
   <span class="sidenote">
-This graph looks different from the others, because I used Haskell to make it. I have an upcoming post about some of the difficulties I've had picking up R for these sorts of tasks. After spending much of the day yesterday trying to make this graph, I turned to Haskell, had a great time, and made a nice graph. Hopefully, I have not given up on experimenting with R, but I can get much more done with Haskell most of the time. Maybe I'll return to this task with it: I would like to better understand the paradigm before I decide I'm though with it.
+This graph looks different from the others, because I used Haskell to make it. I have an upcoming post about some of the difficulties I've had picking up R for these sorts of tasks. After spending much of the day yesterday trying to make this graph, I turned to Haskell and had an easier time. Hopefully, I have not given up on experimenting with R, but I can get much more done with Haskell most of the time. Maybe I'll return to this task with it: I would like to better understand the paradigm before I decide I'm through with it.
     </span>
 
 <img src="/static/effectiveRates2020.png"/>
 
 I'll be exploring different tax regimes more in a future post, but this all I have for now on income tax brackets.
-
 
