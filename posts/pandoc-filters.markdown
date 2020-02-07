@@ -1,5 +1,7 @@
 ---
 title: Custom Pandoc Filters in Haskell
+date: "December 13, 2019"
+tags: haskell, pandoc, blogging
 ---
 
 ## The Expressiveness/Verbosity Tradeoff

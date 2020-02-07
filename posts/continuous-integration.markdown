@@ -1,5 +1,7 @@
 ---
 title: Continuous Integration and Deployment
+date: "December 2, 2019"
+tags: blogging
 ---
 
 "How should I host my statically-generated website?" I thought to myself, considering several available options.

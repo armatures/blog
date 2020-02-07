@@ -1,5 +1,7 @@
 ---
 title: Developmental Milestones arranged by Domain
+date: "December 19, 2019"
+tags: human development
 ---
 
  For the first few years of life, humans are wonderfully comparable. By the time you have developed the capacity to read this blog, most of your physical development is probably complete. For some early stage of life, a complex organism is busy realizing its physical potential, and ramping up to a full realization of its capacity: for homo sapiens, this lasts years. There are many things at all ages that do not fit onto a linear model like this one, but early on, there are capacities every individual will develop, unless something goes wrong.

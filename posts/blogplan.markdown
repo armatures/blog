@@ -1,5 +1,7 @@
 ---
 title: Where to Blog?
+date: "November 25, 2019"
+tags: blogging
 ---
   
 This post compares different blogging options I considered when choosing to put my writing online.

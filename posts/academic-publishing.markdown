@@ -1,5 +1,7 @@
 ---
 title: The "Serials Crisis" in Academic Publishing
+date: December 10, 2019
+tags: publishing, economics
 ---
 
 The academic publishing market is in crisis, with subscription prices rising at a rate unsustainable for most subscribers. Despite the difficulties periodicals at large have had transitioning to digital distribution, with many publishers shuttering their businesses, academic publishing has become more lucrative. In this post, I explore the causes of this ["serials crisis"](https://en.wikipedia.org/wiki/Serials_crisis) in academic publishing.

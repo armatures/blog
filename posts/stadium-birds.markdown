@@ -1,5 +1,7 @@
 ---
 title: U.S. Bank Stadium's Bird Toll
+date: "November 27, 2019"
+tags: economics
 ---
 
 Over the last few years of living in Minneapolis, there has been a substantial amount of conversation about the new Vikings stadium, particularly about its cost (substantial) and its toll on migrating birds (uncertain). In 2017, the Audubon Chapter of Minneapolis published a study they performed during the Fall migration season in 2016, concluding “this level of migratory bird mortality … will establish U.S.Bank Stadium as the top bird-killing building in the Twin Cities.” 

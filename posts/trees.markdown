@@ -1,5 +1,7 @@
 ---
 title: Decision Trees as a Teaching Tool
+date: "December 19, 2019"
+tags: economics, diagrams
 ---
 
 Recently I encountered the idea of [fast-and-frugal trees](https://en.wikipedia.org/wiki/Fast-and-frugal_trees) through [an Econtalk conversation with Gerd Gigerenzer](https://www.econtalk.org/gerd-gigerenzer-on-gut-feelings/). I have long been interested in graphical representations of information and I want to explore applications of this idea.

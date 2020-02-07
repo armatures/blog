@@ -2,6 +2,7 @@
 title: "2020 Income Tax Brackets"
 date: "January 10, 2020"
 edited: "January 23, 2020"
+tags: economics, taxes
 ---
 
 Usually, tax brackets are presented in tabular form. These are the rates for 2020:
