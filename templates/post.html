@@ -1,6 +1,11 @@
 <article>
     <section class="header">
         Posted on $date$$if(edited)$, last edited $edited$$endif$
+        <div class="info">
+            $if(tags)$
+            Tags: $tags$
+            $endif$
+        </div>
     </section>
     <section>
         $body$
