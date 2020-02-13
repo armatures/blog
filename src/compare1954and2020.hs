@@ -6,16 +6,18 @@ import GHC.Float
 import Data.List.Split (chunksOf)
 import Data.List (intersperse, nub)
 
-data TaxSpec = TaxSpec { boundaries :: [Int], rates :: [Float], year :: String}
-data FileSpec = FileSpec { filename :: String, title :: String }
+data TaxSpec = TaxSpec { boundaries :: [Int], rates :: [Float], filename :: String, title :: String }
 data GraphSpec = GraphSpec { xMax :: Int, rightMax :: Int, rateMax :: Int }
 
 main :: IO ()
 main =
-  renderBothTaxSpec spec2020 spec1954adjusted fileSpec graphSpec
+  (renderTaxSpec spec2020 graphSpec2020)
+  >> (renderTaxSpec spec1954adjusted graphSpec1954adjusted)
+  >> (renderTaxSpec spec1954 graphSpec1954)
 
-renderBothTaxSpec :: TaxSpec -> TaxSpec -> FileSpec -> GraphSpec -> IO ()
-renderBothTaxSpec spec1 spec2 filespec (GraphSpec {xMax, rightMax, rateMax})=
+
+renderTaxSpec :: TaxSpec -> GraphSpec -> IO ()
+renderTaxSpec spec (GraphSpec {xMax, rightMax, rateMax})=
     let
         incomes = [100,200..xMax]
         graphPoints :: (Int -> Double) -> [(Double, Double)]
@@ -23,11 +25,10 @@ renderBothTaxSpec spec1 spec2 filespec (GraphSpec {xMax, rightMax, rateMax})=
             (fromIntegral <$> incomes)
             (f <$> incomes)
 
-        -- xTickLabels :: [(Double, String)]
-        -- xTickLabels = scaleTicksAndLabel (nub $ tail $ boundaries spec)
+        xTickLabels :: [(Double, String)]
+        xTickLabels = scaleTicksAndLabel (nub $ tail $ boundaries spec)
         rightTickLabels = scaleTicksAndLabel [0, 25000..rightMax]
 
-        scaleTicksAndLabel :: [Int] -> [(Double, String)]
         scaleTicksAndLabel ticks = getZipList $
             (,) <$>
             ZipList (fromIntegral <$> ticks) <*>
@@ -39,16 +40,10 @@ renderBothTaxSpec spec1 spec2 filespec (GraphSpec {xMax, rightMax, rateMax})=
             (,) <$>
             ZipList (flip (/) 100 <$> yTicks) <*>
             ZipList ((flip (++) "%" . show . floor) <$> yTicks)
-
-        plot :: TaxSpec -> EC (LayoutLR Double Double Double) ()
-        plot spec = do
-          plotLeft (line ("Effective Rate " <> year spec) [graphPoints (float2Double . (effectiveTaxForIncome spec))])
-          plotLeft (line ("Marginal Rate " <> year spec) [graphPoints (float2Double . (marginalRateForIncome spec))])
-          plotRight (line ("Total Tax " <> year spec) [graphPoints (float2Double . (taxForIncome spec))])
     in
 
-    toFile def ("static/" ++ filename filespec ++ ".png") $ do
-    layoutlr_title .= title filespec
+    toFile def ("static/" ++ filename spec ++ ".png") $ do
+    layoutlr_title .= title spec
 
     layoutlr_left_axis . laxis_override .= (axisGridHide . axisLabelsOverride rateTickLabels)
     layoutlr_left_axis . laxis_title .= "Effective Rate"
@@ -56,27 +51,29 @@ renderBothTaxSpec spec1 spec2 filespec (GraphSpec {xMax, rightMax, rateMax})=
     layoutlr_right_axis . laxis_override .= (axisGridHide . axisLabelsOverride rightTickLabels)
     layoutlr_right_axis . laxis_title .= "Total Tax ($000)"
 
-    plot spec1
-    plot spec2
-
-    -- layoutlr_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
+    layoutlr_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
     -- layoutlr_x_axis . laxis_override .= axis_viewport .= (\(a,b) c -> 1)
-    -- layoutlr_x_axis . laxis_title .= "Income ($000)"
+    layoutlr_x_axis . laxis_title .= "Income ($000)"
 
+    plotLeft (line "Effective Rate" [graphPoints (float2Double . (effectiveTaxForIncome spec))])
+    plotLeft (line "Marginal Rate" [graphPoints (float2Double . (marginalRateForIncome spec))])
+    plotRight (line "Total Tax" [graphPoints (float2Double . (taxForIncome spec))])
 
 cpiAdjuster1954 = 369.8/45.2 :: Double -- 2018 dollars, using the Bureau of Labor Statistics' (BLS) Consumer Price Index Research Series (CPI-U-RS) from https://www.census.gov/topics/income-poverty/income/guidance/current-vs-constant-dollars.html
 boundaries1954 = [ 0 , 2000 , 4000 , 6000 , 8000 , 10000 , 12000 , 14000 , 16000 , 18000 , 20000 , 22000 , 26000 , 32000 , 38000 , 44000 , 50000 , 60000 , 70000 , 80000 , 90000 , 100000 , 150000 , 200000 , 205000 , 205000] :: [Int]
 rates1954 = [ 0.20 , 0.22 , 0.26 , 0.30 , 0.34 , 0.38 , 0.43 , 0.47 , 0.50 , 0.53 , 0.56 , 0.59 , 0.62 , 0.65 , 0.69 , 0.72 , 0.75 , 0.78 , 0.81 , 0.84 , 0.87 , 0.89 , 0.90 , 0.91 , 0.91 ]
+spec1954 = TaxSpec boundaries1954 rates1954 "effectiveRates1954" "1954 Income Tax Rates"
+graphSpec1954 = GraphSpec { xMax = 205000 , rightMax = 200000 , rateMax = 95 }
 
 boundaries1954adjusted = fmap (floor . (* cpiAdjuster1954) . fromIntegral) boundaries1954
-spec1954adjusted = TaxSpec boundaries1954adjusted rates1954 "1954"
+spec1954adjusted = TaxSpec boundaries1954adjusted rates1954 "effectiveRates1954adjusted" "1954 Income Tax Rates (2018 Dollars)"
+graphSpec1954adjusted = GraphSpec { xMax = 600000 , rightMax = 400000 , rateMax = 85 }
 
 bracketBoundaries :: [Int]
 bracketBoundaries = [0, 9875, 40125, 85525, 163300, 207350, 518400, 600000]
 bracketRates = [0.10 ,0.12 ,0.22 ,0.24 ,0.32 ,0.35 ,0.37 ]
-spec2020 = TaxSpec bracketBoundaries bracketRates "2020"
-graphSpec = GraphSpec 600000 400000 40
-fileSpec = FileSpec "ratesComparison1954vs2020" "1954 and 2020 Income Tax Rates"
+spec2020 = TaxSpec bracketBoundaries bracketRates "effectiveRates2020" "2020 Income Tax Rates"
+graphSpec2020 = GraphSpec 600000 400000 40
 
 marginalRateForIncome :: TaxSpec -> Int -> Float
 marginalRateForIncome spec i =
