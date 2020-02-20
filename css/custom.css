@@ -1,0 +1,41 @@
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+/* for payoff matrices */
+.diagonal-line {
+  background: linear-gradient(to top right,transparent 49.5%,#aaa 49.5%,#aaa 50.5%,transparent 50.5%);
+  line-height: 1;
+
+}
+.diagonal-line .right {
+    margin-left: 2em;
+    text-align: right;
+}
+
+.diagonal-line .left {
+    margin-right:2em;
+    text-align:left;
+}
+
+.border, .border th, .border td {
+  border-collapse: collapse;
+  border: 1px solid #a2a9b1;
+}
+
+.centered {
+  margin:0 auto;
+  display: block;
+  text-align:center;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
