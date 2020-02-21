@@ -1,6 +1,7 @@
 ---
 date: "February 21, 2020"
 title: "Marty Cagan's Recommended Opportunity Assessment"
+tags: product
 ---
 
 If only to practice using the tool, I'm going to do a formal "opportunity assessment" as described by Marty Cagan in his book _Inspired_. My friend and former colleague Brandon Fortune recommended the book to me, and I've been trying to internalize some of its advice. I am generally more engineer than product manager, but so long as I intend to stay self-employed, I really need to work on the market-oriented side of this equation (my natural state seems to be spending all my time working with code nobody is interested in).
