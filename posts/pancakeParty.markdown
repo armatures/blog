@@ -1,16 +1,78 @@
-I do not often have pancakes. Though pancakes are delicious, I do not own syrup or pancake-making ingredients. If I want to eat pancakes, I will probably coordinate to do so with a friend. Let's model a cooperative pancake breakfast with a simple game.
+---
+title: "Pancake Party"
+date: "February 18, 2020"
+tags: economics, coordination problems
+---
+I do not often eat pancakes. Though pancakes are delicious, they are an uncommon enough food for me that I do not own syrup or pancake-making ingredients. If I want to eat pancakes, I will probably coordinate to do so with a friend. Let's model a cooperative pancake breakfast with a simple game.
 
-A Pancake Game
-You and I will coordinate to bring pancake necessities to our meeting (you can bring syrup, I will bring the cakes). Payouts are 1 if both players choose C (for Cakes) and zero in any other case (if one player Doesn't bring cake-stuff):
-	C 	|	 D
-C | (1,1) 	(0,0)
-D | (0,0)  	(0,0)
+## A Pancake Game
+
+You and I will coordinate to bring pancake necessities to our meeting (you can bring syrup, I will bring the cakes). Payouts are 1 if both players choose to bring party supplies and zero in any other case
+<label for="sn-payoff-matrix" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-payoff-matrix" class="margin-toggle">
+  <span class="sidenote">
+    This diagram is a _payoff matrix._ The pairs of numbers in the cells of the table represent the payouts to the two players of the game, and the column and row of each cell represent the choices made by the players.
+    </span>:
+
+<caption>
+Payouts given cost for players to participate is zero
+<table class="border" style="margin:0;padding:0;">
+<tbody><tr>
+<th class="border diagonal-line"><div class="right">player B</div><div class="left">player A</div>
+</th>
+<th>B brings <br>supplies
+</th>
+<th>B defects
+</th></tr>
+<tr>
+<th>A brings <br>supplies
+</th>
+<td class="border diagonal-line"><div class="right">1</div><div class="left">1</div>
+</td>
+<td class="border diagonal-line"><div class="right">0</div><div class="left">0</div>
+</td></tr>
+<tr>
+<th>A defects
+</th>
+<td class="border diagonal-line"><div class="right">0</div><div class="left">0</div>
+</td>
+<td class="border diagonal-line"><div class="right">0</div><div class="left">0</div>
+</td></tr></tbody></table>
+</caption>
+
+<div style="width:55%"> <div class="centered" style="width:200px"><img alt="pancakes: batter fried in a pan" src="../static/pancakes.png"/> <caption> a stack of pancakes </caption> </div></div>
+
 This gives a weakly dominant strategy of playing C to both players. If this model is accurate, both players will play C, and get a payout.
 What happens if there is a cost to changing strategy, and both players currently have chosen D? Maybe the players don't have pancake ingredients on hand, and would have to procure them, or maybe it is difficult to transport eggs around in your backpack on the bus. The players can choose to take some risk on making the pancake party happen, or take the lazy, safe bet of doing nothing.
 We can think of this game with a new payout matrix:
-first\second	Cakes 	|	Don't
-Cakes  |  (1,1) 	(-1,0)
-Don't    | (0,-1)  		(0,0)
+
+
+<caption>
+Payouts given a cost of participation for players
+<table class="border" style="margin:0;padding:0;">
+<tbody><tr>
+<th class="border diagonal-line"><div class="right">player B</div><div class="left">player A</div>
+</th>
+<th>B brings <br>supplies
+</th>
+<th>B defects
+</th></tr>
+<tr>
+<th>A brings <br>supplies
+</th>
+<td class="border diagonal-line"><div class="right">1</div><div class="left">1</div>
+</td>
+<td class="border diagonal-line"><div class="right">0</div><div class="left">-1</div>
+</td></tr>
+<tr>
+<th>A defects
+</th>
+<td class="border diagonal-line"><div class="right">-1</div><div class="left">0</div>
+</td>
+<td class="border diagonal-line"><div class="right">0</div><div class="left">0</div>
+</td></tr></tbody></table>
+</caption>
+
 This is a classic prisoner's dilemma. There is a cost to changing strategies (or a risk), but if both players change strategies, there is a payout, and hopefully precedent for games in the future. In this case, paying the cost to change strategies is not obviously good. The assurance of someone else changing strategies as well would give a payout, but you're unlikely to get there without explicit coordination. 
 
 A Pancake Party
@@ -25,3 +87,6 @@ In the more general case, I'm imagining many people, each of whom will bring a d
 - Restaurant: how about... we just pay for the pancakes, and the kitchen, and the labor to create them, and the space to eat them in, and give up on this party thing.
 ...
 Maybe there our other solutions to coordinating these would be pancake party participants. I'm hoping to generalize from this about other coordination problems in a future post but I think this is a fun concrete case to consider.
+
+<img src="../static/pancake_pan.jpeg"/>
+<img src="../static/pancakeInk.jpeg"/>
