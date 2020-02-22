@@ -25,12 +25,19 @@ h2 {
 .border, .border th, .border td {
   border-collapse: collapse;
   border: 1px solid #a2a9b1;
+  padding: 5px;
 }
 
 .centered {
   margin:0 auto;
   display: block;
   text-align:center;
+}
+
+.stamp-container {
+  width:55%;
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 html {
