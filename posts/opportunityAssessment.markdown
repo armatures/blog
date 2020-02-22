@@ -1,10 +1,10 @@
 ---
 date: "February 21, 2020"
-title: "Marty Cagan's Recommended Opportunity Assessment"
+title: "Opportunity Assessment"
 tags: product
 ---
 
-If only to practice using the tool, I'm going to do a formal "opportunity assessment" as described by Marty Cagan in his book _Inspired_. My friend and former colleague Brandon Fortune recommended the book to me, and I've been trying to internalize some of its advice. I am generally more engineer than product manager, but so long as I intend to stay self-employed, I really need to work on the market-oriented side of this equation (my natural state seems to be spending all my time working with code nobody is interested in).
+This post is a formal "opportunity assessment" as described by Marty Cagan in his book _Inspired_. My friend and former colleague Brandon Fortune recommended the book to me, and I've been trying to internalize some of its advice. I am generally more engineer than product manager, but so long as I intend to stay self-employed, I really need to work on the market-oriented side of this equation (my natural state seems to be spending all my time working with code nobody is interested in).
 
 
 ## Opportunity: Boardgame Library Wiki
@@ -59,7 +59,7 @@ This seems like a very small opportunity. If the solution is low-effort, it coul
 
 ## Implementation
 
-You've probably noticed the absence of talk about solutions to this problem. That is deliberate, the idea being that if you are well-suited to solve the problem, you shouldn't scrap the opportunity if a specific idea doesn't work out. This _does_ feel lacking to me, though: without evaluating a specific solution, how can we estimate the cost/benefit of the opportunity? In a [blog post about the technique](), Cagan writes "we’re not describing the product here but rather making clear any dependencies or constraints." Cagan reiterates throughout _Inspired_ that the major responsibility of a product manager is to "discover a product that is valuable, usable, and feasible." I'll have to revisit the book to see what further recommendations he has for how to do that once you've chosen an opportunity.
+You've probably noticed the absence of talk about solutions to this problem. That is deliberate, the idea being that if you are well-suited to solve the problem, you shouldn't scrap the opportunity if a specific idea doesn't work out. This _does_ feel lacking to me, though: without evaluating a specific solution, how can we estimate the cost/benefit of the opportunity? In a [blog post about the technique](https://svpg.com/assessing-product-opportunities/), Cagan writes "we’re not describing the product here but rather making clear any dependencies or constraints." Cagan reiterates throughout _Inspired_ that the major responsibility of a product manager is to "discover a product that is valuable, usable, and feasible." I'll have to revisit the book to see what further recommendations he has for how to do that once you've chosen an opportunity.
 
 Even though I'm not supposed to think too hard about the implementation of a potential solution, implementation is where I'll be spending a lot of my time, if I choose to pursue the opportunity.
 John MacFarlane wrote a wiki engine in Haskell called [gitit](https://github.com/jgm/gitit) that might be interesting to use. To set such a thing up, you'd follow the instructions on the wiki, and then find a host. If introduction to a single local library was valuable, there would be value in introducing it to other local game libraries, and linking other resources to make the listings more valuable.
@@ -68,7 +68,7 @@ I _do_ have concrete next steps, if this problem is worth spending more time on.
 <label for="sn-concrete" class="margin-toggle sidenote-number"></label>
   <input type="checkbox" id="sn-concrete" class="margin-toggle">
   <span class="sidenote">  
-As I wrote that, I noticed that part of me was trying to get that number as small as possible. Investigating that part of me more closely, I think I am trying to compensate for my natural impatience with this sort of reflection. This sort of attention to process runs counter to my years of experience as a software & business consultant. Heavy, inflexible processes are the bane of progress in the large companies I've worked with, and in my own life, I wonder if I've tried to cut out pointless speculation in some effort to _trim the fat_ and _get lean_ in an effort to _just build something_. I don't know that there's a very conscious justification to this. Do most people experience under-developed processes in their personal lives, and pointlessly-cumbersome processes in organizations they work with? Accountability to other people creates inflexible commitments, so it makes sense that such things might accumulate.
+As I wrote that, I noticed that part of me was trying to get that number as small as possible. Investigating that part of me more closely, I think I am trying to compensate for my natural impatience with this sort of reflection. This sort of attention to process runs counter to my years of experience as a software & business consultant. Heavy, inflexible processes are the bane of progress in the large companies I've worked with, and in my own life, I wonder if I've tried to cut out pointless speculation in some effort to _just build something_. I don't know that there's a very conscious justification to this. Do most people experience under-developed processes in their personal lives, and pointlessly-cumbersome processes in organizations they work with? Accountability to other people creates inflexible commitments, so it makes sense that such things might accumulate. Most of us spend our private lives without too much conscious attention paid to things, so I'm willing to believe that we might have too few deliberate processes.
 Assessing an opportunity every couple days sounds very frequent. I'll probably make a goal to do this a few more times before I can figure out the types of opportunites it's best suited for.
 </span>
 
