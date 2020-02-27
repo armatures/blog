@@ -104,3 +104,5 @@ node_modules
 .netlify
 graphviz-images
 mscgen-images
+*/.DS_Store
+.DS_Store
