@@ -12,7 +12,8 @@ data GraphSpec = GraphSpec { xMax :: Int, rightMax :: Int, rateMax :: Int }
 
 main :: IO ()
 main =
-  renderBothTaxSpec spec2020 spec1954adjusted fileSpec graphSpec
+  print (boundaries spec1954adjusted)
+  >> renderBothTaxSpec spec2020 spec1954adjusted fileSpec graphSpec
 
 renderBothTaxSpec :: TaxSpec -> TaxSpec -> FileSpec -> GraphSpec -> IO ()
 renderBothTaxSpec spec1 spec2 filespec (GraphSpec {xMax, rightMax, rateMax})=
@@ -23,9 +24,8 @@ renderBothTaxSpec spec1 spec2 filespec (GraphSpec {xMax, rightMax, rateMax})=
             (fromIntegral <$> incomes)
             (f <$> incomes)
 
-        -- xTickLabels :: [(Double, String)]
-        -- xTickLabels = scaleTicksAndLabel (nub $ tail $ boundaries spec)
-        rightTickLabels = scaleTicksAndLabel [0, 25000..rightMax]
+        xTickLabels :: [(Double, String)]
+        xTickLabels = scaleTicksAndLabel ([0,100000..2000000])
 
         scaleTicksAndLabel :: [Int] -> [(Double, String)]
         scaleTicksAndLabel ticks = getZipList $
@@ -40,28 +40,23 @@ renderBothTaxSpec spec1 spec2 filespec (GraphSpec {xMax, rightMax, rateMax})=
             ZipList (flip (/) 100 <$> yTicks) <*>
             ZipList ((flip (++) "%" . show . floor) <$> yTicks)
 
-        plot :: TaxSpec -> EC (LayoutLR Double Double Double) ()
-        plot spec = do
-          plotLeft (line ("Effective Rate " <> year spec) [graphPoints (float2Double . (effectiveTaxForIncome spec))])
-          plotLeft (line ("Marginal Rate " <> year spec) [graphPoints (float2Double . (marginalRateForIncome spec))])
-          plotRight (line ("Total Tax " <> year spec) [graphPoints (float2Double . (taxForIncome spec))])
+        plot_ :: TaxSpec -> EC (Layout Double Double) ()
+        plot_ spec = do
+          plot (line ("Effective Rate " <> year spec) [graphPoints (float2Double . (effectiveTaxForIncome spec))])
+          plot (line ("Marginal Rate " <> year spec) [graphPoints (float2Double . (marginalRateForIncome spec))])
     in
 
     toFile def ("static/" ++ filename filespec ++ ".png") $ do
-    layoutlr_title .= title filespec
+    layout_title .= title filespec
 
-    layoutlr_left_axis . laxis_override .= (axisGridHide . axisLabelsOverride rateTickLabels)
-    layoutlr_left_axis . laxis_title .= "Effective Rate"
+    layout_y_axis . laxis_override .= (axisGridHide . axisLabelsOverride rateTickLabels)
+    layout_y_axis . laxis_title .= "Effective Rate"
 
-    layoutlr_right_axis . laxis_override .= (axisGridHide . axisLabelsOverride rightTickLabels)
-    layoutlr_right_axis . laxis_title .= "Total Tax ($000)"
+    plot_ spec2
+    -- plot_ spec1
 
-    plot spec1
-    plot spec2
-
-    -- layoutlr_x_axis . laxis_override .= (axisGridAtLabels . axisLabelsOverride xTickLabels )
-    -- layoutlr_x_axis . laxis_override .= axis_viewport .= (\(a,b) c -> 1)
-    -- layoutlr_x_axis . laxis_title .= "Income ($000)"
+    layout_x_axis . laxis_override .= (axisLabelsOverride xTickLabels)
+    layout_x_axis . laxis_title .= "Income ($000)"
 
 
 cpiAdjuster1954 = 369.8/45.2 :: Double -- 2018 dollars, using the Bureau of Labor Statistics' (BLS) Consumer Price Index Research Series (CPI-U-RS) from https://www.census.gov/topics/income-poverty/income/guidance/current-vs-constant-dollars.html
@@ -72,11 +67,11 @@ boundaries1954adjusted = fmap (floor . (* cpiAdjuster1954) . fromIntegral) bound
 spec1954adjusted = TaxSpec boundaries1954adjusted rates1954 "1954"
 
 bracketBoundaries :: [Int]
-bracketBoundaries = [0, 9875, 40125, 85525, 163300, 207350, 518400, 600000]
-bracketRates = [0.10 ,0.12 ,0.22 ,0.24 ,0.32 ,0.35 ,0.37 ]
+bracketBoundaries = [0,    9875, 40125, 85525, 163300, 207350, 518400, 2000000]
+bracketRates =      [0.10, 0.12, 0.22,  0.24,  0.32,   0.35,   0.37,   0.37]
 spec2020 = TaxSpec bracketBoundaries bracketRates "2020"
-graphSpec = GraphSpec 600000 400000 40
-fileSpec = FileSpec "ratesComparison1954vs2020" "1954 and 2020 Income Tax Rates"
+graphSpec = GraphSpec 600000 400000 100
+fileSpec = FileSpec "ratesComparison1954vs2020v3" "1954 and 2020 Income Tax Rates"
 
 marginalRateForIncome :: TaxSpec -> Int -> Float
 marginalRateForIncome spec i =
@@ -107,7 +102,6 @@ taxForIncome spec i =
         (fromIntegral $ upperBound - (bottom b))*(rate b)
     )
     <$> (relevantBrackets spec i)
-
 
 data Bracket = Bracket { bottom :: Int
                         ,top :: Int
