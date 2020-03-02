@@ -3,25 +3,23 @@ title: Introductions
 date: "February 27, 2020"
 tags: friendship
 ---
-"I want you to meet someone"
+> "I want you to meet someone"
 
 In 2013, I took a job in San Francisco. I was living in Minneapolis at the time, and I knew one person in the city (who referred me to the company that would employ me). One of my closest friends sent an email to me and his friend Andy that lived in the city. This email introduced us, and started a friendship that would grow into one of my favorite friendships in that city.
 Having just reread it, I can confidently say that nothing makes me grimace worse than reading old correspondence. Maybe. Maybe this particular correspondence is particularly uncomfortable, because of what it's trying to accomplish. Introducing people is uncommon and difficult. But why should it be so hard? 
 
 At 142 words, the email in question can't have been such a large time investment for our introducer, but there was unquestionably a cost to introducing us. Introductions are risky propositions, and might be insulting or flop completely, backfiring on the failing matchmaker. There is real overhead to running one's inner simulator and trying to imagine whether your friends will get along, and it might just be that opportunities for good introduction are rare. The rarer they are, the more likely you are to stop looking for them, so even if they are genuinely scarce, many of them probably go unnoticed.
 
-They're worth looking for, though: the benefit of an introduction is obvious: I made a great friend, and grew through the relationship. Andy and I would meet at bars and draw comics. The quality of our creations grew over time, to the point where he's something of an accomplished comics artist by now. New relationships are a way of exploring new identities for ourselves, and I like to think I get some small part of the credit for the advancement of his art. Times of transition are natural opportunities for introduction: you're safe to assume people are looking for new relationships. But I think introductions are scarcer than they should be. Good friendships are hard to build, so we ought to give each other all the help we can. In this post I argue that they are a specific example of a larger case of experiments we too-seldom perform, and that we ought to introduce more people. There is also a principle-agent problem at play: the introducer does not capture most of the upside when introducing two friends successfully, so they under-perform this action.
+They're worth looking for, though.
+You could make a great friend, an opportunity that I think we undervalue.
+Times of transition are natural opportunities for introduction: you're safe to assume people are looking for new relationships. But I think introductions are scarcer than they should be. Good friendships are hard to build, so we ought to give each other all the help we can. In this post I argue that they are a specific example of a larger case of experiments we too-seldom perform, and that we ought to introduce more people. There is also a principle-agent problem at play: the introducer does not capture most of the upside when introducing two friends successfully, so they under-perform this action.
 
-I love getting a good introduction to someone I should meet, yet I very seldom introduce people.
-This has a promise of unrealized potential that I'd like to explore in this post.
-The first hypothesis that comes to mind is that there is a substantial downside risk, but I'm not sure that's actually the case.
-In general in life, people experiment too little (probably a result of planning on too short a time horizon).
-Is the introduction of two people to one another just one type of experiment we too-seldom perform?
-Is this just an example of our short-sightedness?
-I suspect there is also a principle-agent problem: how much upside do you really capture when you introduce two friends successfully?
-If we knew what we could gain, I suspect we'd ask our friends for introductions all the time.
+> "He's brilliant. You're two of my favorite conversationalists, and I just discovered you both live in Brooklyn a couple miles apart. What I wouldn't give to be there for your conversation: I have half a mind to get a plane ticket just for that."
+
+I'm writing this because I discovered two of my friends live near one another, and I realized I was feeling uncertain about introducing them. It's a great opportunity...I think. That uncertainty definitely warrants more investigation.
 
 ## Introductions are Hard
+
 How do you introduce yourself to new people? Given the huge diversity of people you might be meeting, it's difficult to answer this problem in general. Your introduction depends on who you are in the context you're introduced in, and who your audience is.
 Because I'm more familiar with myself than with anyone else, it seems natural that introducing someone else should be more difficult than introducing yourself. In both cases,
 people often revert to an unsatisfying and boring custom of asking one another "what do you do?"
@@ -70,3 +68,8 @@ I can spend the money to stay in a stranger's guest bedroom: it's cheaper than e
 An investment in meeting new people is an investment in myself, and in pushing myself in the direction of something I want. If there are things I might like to do, I should explore these possibilities through deliberate efforts to expand my social network.
 
 I want to experiment. First, introduce Jenny and Kevin. Then, ask people for introductions, but to who? Their most _ friend. Most fulfilled? Most eccentric? Most confident? I also want to record introduction phone conversations with Jenny and Kevin. This will be a project building in the direction of podcasts at distance via phone.
+
+The benefit of an introduction is obvious: I made a great friend, and grew through the relationship.
+Andy and I would meet at bars and draw comics.
+The quality of our creations grew over time, to the point where he's something of an accomplished comics artist by now.
+New relationships are a way of exploring new identities for ourselves, and I like to think I get some small part of the credit for the advancement of his art.
