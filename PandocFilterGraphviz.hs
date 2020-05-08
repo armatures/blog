@@ -116,7 +116,7 @@ renderAll cblock@(CodeBlock (id, classes, attrs) content)
     m = M.fromList $ toTextPairs attrs
     (caption, typedef) = getCaption m
     image img =
-      Para
+      Plain
         [ Image
             (id, classes, attrs)
             [Str $ T.unpack caption]
