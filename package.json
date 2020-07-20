@@ -2,11 +2,11 @@
   "name": "blog",
   "description": "a blog by armatures",
   "devDependencies": {
-    "netlify-cli": "2.21.0"
+    "netlify-cli": "2.x"
   },
   "scripts": {
     "watch": "stack exec site watch",
     "deploy": "netlify deploy --dir=_site",
-    "build": "stack build && rm graphviz-images/* && rm mscgen-images/* && stack exec site build"
+    "build": "stack build && stack exec site build"
   }
 }
