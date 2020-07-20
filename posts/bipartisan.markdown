@@ -1,6 +1,7 @@
 ---
 title: Bipartisan Space
 date: "May 6, 2020"
+edited: "July 20, 2020"
 tags: politics, diagrams, software, architecture
 ---
 
@@ -27,6 +28,10 @@ I started thinking about a website where people could go to share bipartisan spa
 
 ## Architecture
 The frontend needs are easy enough to define: a user would have a few sliders to set their values in the three dimensions, and with these set, the user would see the axes with all the visitors on them. Other users' dots would appear and disappear as they come and go (this is the most interesting technical requirement).
+
+<caption>
+<img src="/static/threePoliticalAxes.png" alt="three political axes"/>
+graphing some visitors on the three political axes</caption>
 
 A collection of user dots implies a datastore of some sort. Usually, I'd put a server in front of the database and make REST requests over HTTP to it. In the interests of expanding my horizons, I'll try something a little less familiar. GraphQL, maybe, instead of REST endpoints... But that still leaves the difficult requirement for the page to update as people come and go. I've consumed websockets on the frontend, and they're more complicated than I would have expected. My last employer used a paid service to establish websocket connections, which seems odd for an open protocol I'd expect is fairly common. So that's puzzling, and might be interesting to look into. I've also heard good things about firebase, and it specializes in doing things very quickly and at scale. This is the option I plan to go with.
 
