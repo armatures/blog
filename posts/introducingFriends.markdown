@@ -1,7 +1,7 @@
 ---
 title: Introductions
 date: "February 27, 2020"
-edited: "May 8, 2020"
+edited: "July 20, 2020"
 tags: friendship, experiment
 ---
 > "I want you to meet someone"
@@ -54,10 +54,6 @@ In this way, an introduction could be an insult.
 The subtext is "you need more people in your life," or "you deserve this person." Even if no one intends to insult, and being a matchmaker of friends is nothing but risky downside, this insult might be the most resonant part of your gesture.
 But all of this is a little ridiculous. It would be very unusual to go out of one's way to insult someone. The only sensible message one can interpret from a friendly introduction and endorsement is a positive one. "I went out of my way to endorse you to this person I think you'll like, and I've got nothing to gain from being dishonest about this."
 
-I'm going to make some introductions. My intention in doing so is to invest in the future, and quit planning for the short term. My introduction is likely to read something like "you two are both brilliant and both live in Brooklyn. There's nobody I'd rather have conversation with, so you two should have one." I may include some conversation topics, though I am the most obvious choice.
-
-
-
 ## The Past was Probably Terrible, But...
 
 In a time before telegraphs, visitors to a city would solicit letters of recommendation from friends to call on residents at their destination. Before hospitality was an established industry, such letters would have been an essential part of planning a trip. Now that we don't _need_ to impose on people to have a bed where we're going, most of us don't even consider inconveniencing someone on our behalf.
@@ -69,6 +65,11 @@ I'm very unlikely to form a lasting relationship with my host (if we even meet),
 At the risk of idealizing the past, imagine with me a world where my only option is to impose on my social network for a recommendation of a resident of my destination city.
 Though it would make travel much more expensive (the coordination costs are huge), and unpredictable (oops, my would-be hosts are away right now), it also sounds like a great way to meet someone.
 If one had the same budget for accomodations, they could buy a nice shared experience or gift for their host, and bring with them the endorsement of a mutual friend.
+
+
+<img src="/static/convenient.png" alt="Convenient accomodation or speculative friendship?"/>
+<caption>What are you looking for in this visit?</caption>
+
 A gift or indulgence shared with someone you have reason to trust sounds like the absolute best arrangement for starting a relationship.
 In my case, the value of a place to stay in San Francisco is _high_, and Andy probably would have trusted my letter of recommendation enough to let me crash on his couch (identity is much easier to verify than it used to be, too, so you know the endorsement is a real one).
 Had I been coached to gift Andy some high-end pens or markers, we could have spent the evening making art together (as we have so often done since), and the whole endeavor might have been seen as an investment in that part of ourselves that likes art-making.
@@ -84,8 +85,9 @@ An investment in meeting new people is an investment in myself, and in pushing m
 
 In general, as I mentioned before, people perform too few experiments. This is probably due to hyperbolic discounting and a failure to appreciate the size of the upside if you e.g. end up with a new close friend you see frequently.
 
-This is a request for introductions! I'm interested in meeting your most original-thinking friend (or maybe just someone you think would enjoy this sort of experiment). I'd like an introduction, and because we are going to meet at a distance (for posterity, this is due to COVID-19), I'd like to record the conversation audio. I will use the recordings of these conversations to produce a summary of the experiment. Also, I promise not to take offense at the person you've chosen to introduce me to, even if I don't like them.
+<img src="/static/experiment.png" alt="probably, I'm not talking about drugs when I say 'experiment'"/>
 
+This is a request for introductions! I'm interested in meeting your most original-thinking friend (or maybe just someone you think would enjoy this sort of experiment). I'd like an introduction, and because we are going to meet virtually (for posterity, this is due to COVID-19), I'd like to record the conversation audio. I will use the recordings of these conversations to produce a summary of the experiment. Also, I promise not to take offense at the person you've chosen to introduce me to, even if I don't like them.
 
 If this experiment fails, and I don't meet anyone interesting through it, I'll have learned what doesn't work when it comes to building networks.
 The likeliest scenario is that finding people that like each other is just hard.
