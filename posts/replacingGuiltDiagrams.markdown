@@ -17,6 +17,8 @@ I have been enjoying Nate Soares' [sequence of blog posts](http://mindingourway.
 <span class="marginnote">Remember what you're fighting for: you may follow the paved conventional path for a time before diverging from the triers.
 </span>
 
+From the post:
+
 > If you're trying to pass the class, then pass it with minimum effort. Anything else is wasted motion.
 
 > If you're trying to ace the class, then ace it with minimum effort. Anything else is wasted motion.
