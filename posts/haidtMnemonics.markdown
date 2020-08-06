@@ -6,7 +6,7 @@ tags: diagrams, mnemonics, morality, rationality
 
 # A Visual Mnemonic
 
-Mnemonics are tools for remembering things. I haven't read Jonathan Haidt's _The Righteous Mind_ for years, but I still have easy recall of his categorization of ideas that motivate moral reasoning. The mnemonic that has helped my recall of this concept has stuck with me because it has two layers of compression. Here's the most basic version:
+Mnemonics are tools for remembering things. I haven't read Jonathan Haidt's _The Righteous Mind_ for years, but I still have easy recall of his categorization of ideas that motivate moral reasoning. The mnemonic that has helped my recall of this concept has stuck with me because it has two layers of compression. Here are some icons I made, organized in a grid—the most basic version of the mnemonic:
 
 <img src="/static/haidtMnemonicGrid.svg"/>
 <span class="marginnote">
