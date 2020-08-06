@@ -6,8 +6,7 @@ tags: diagrams, motivation, rationality
 
 I am interested communicating ideas visually. In general, I'm able to remember images for a longer time than I remember language, and the act of refining an idea into a drawing involves wrestling with the idea a little more deeply than I would with a simple summary in text.
 
-I have been enjoying Nate Soares' [sequence of blog posts](http://mindingourway.com/guilt/) titled *Replacing Guilt*, and I decided this would be good material to practice on. This post consists of drawings I've made corresponding to the first seven posts.
-
+I have been enjoying Nate Soares' [sequence of blog posts](http://mindingourway.com/guilt/) titled *Replacing Guilt*, and I decided this would be good material to experiment on. This post consists of drawings I've made corresponding to the first seven posts: each post is listed here by title followed by the image I've drawn and an explanation of the image. These are not intended as a substitute for the original work, and I expect that browsing them without referencing the original posts would be a lackluster experience. If you've already read that sequence, you might find these drawings of interest.
 
 # Preliminaries
 
