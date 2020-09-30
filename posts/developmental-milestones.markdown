@@ -1,13 +1,14 @@
 ---
 title: Developmental Milestones arranged by Domain
 date: "December 19, 2019"
+edited: "September 30, 2020"
 tags: human development
 ---
 
  For the first few years of life, humans are wonderfully comparable. By the time you have developed the capacity to read this blog, most of your physical development is probably complete. For some early stage of life, a complex organism is busy realizing its physical potential, and ramping up to a full realization of its capacity: for homo sapiens, this lasts years. There are many things at all ages that do not fit onto a linear model like this one, but early on, there are capacities every individual will develop, unless something goes wrong.
 
  The Centers for Disease Control and Prevention (CDC) in the United States are recognized as an authority on categorizing human conditions with regard to disease. They have also published a [list of human development milestones](https://www.cdc.gov/ncbddd/actearly/pdf/checklists/Checklists-with-Tips_Reader_508.pdf) for parents to refer to when observing their children's behavior. These milestones go up to age 5, at which point the child is an adult, and can start tracking the troubling development of their parents. 
- The CDC sorts their developmental milestones into four categories: **Cognitive**, **Language/Communication**, **Social/Emotional**, and **Physical Development**.
+ The CDC sorts their developmental milestones into four categories: <a href="#social">**Social/Emotional**</a>, <a href="#language">**Language/Communication**</a>, <a href="#cognitive">**Cognitive**</a>, and <a href="#physical">**Physical Development**</a>.
 
  Alternative sources give different presentations of these milestones, but all the sources I have encountered are organized by age of child primarily, and then each of those sections is sorted into domains/categories.
  I reversed the information hierarchy organizing these milestones: here, they're presented by domain, with a common age of the child listed under that. I have some other ideas about what to do with these, but I am publishing them here in case anyone else is interested in this sort of presentation. I don't think this is presented as well as it could be. I can imagine changing this in all sorts of ways, but I'm not going to do it immediately, so I figured I should publish this now.
@@ -17,7 +18,7 @@ tags: human development
   These milestones were originally presented by the CDC as a PDF: this format might be easier for you to manipulate. If you'd rather find something more computer-friendly, you might prefer to look at the [source of this post](https://github.com/armatures/blog/tree/master/posts).
  </span>
 
-# Social/Emotional
+<h1 href="#social" id="social">Social/Emotional</h1>
 
 ## 2 Months
 
@@ -157,7 +158,7 @@ Is sometimes demanding and sometimes very cooperative
 
 
 
-# Language/Communication
+<h1 id="language"> Language/Communication </h1>
 
 ## 2 Months
 
@@ -269,7 +270,7 @@ Says name and address
 
 
 
-# Cognitive
+<h1 id="#cognitive">Cognitive</h1>
 
 ## 2 Months
 
@@ -428,7 +429,7 @@ Copies a triangle and other geometric shapes
 Knows about things used every day, like money and food
 
 
-# Physical Development
+<h1 id="physical">Physical Development</h1>
 
 ## 2 Months
 
