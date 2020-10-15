@@ -33,6 +33,7 @@
 module PandocFilterGraphviz where
 
 import           Control.Monad          (unless)
+import           Data.Monoid          ((<>))
 import           Crypto.Hash
 
 import           Data.Byteable          (toBytes)
@@ -52,9 +53,6 @@ import           System.Process         (readProcess, system)
 import           Text.Pandoc
 import           Text.Pandoc.JSON
 
-(¤) :: Text -> Text -> Text
-(¤) = T.append
-
 hexSha3_512 :: ByteString -> ByteString
 hexSha3_512 bs = C8.pack $ show (hash bs :: Digest SHA3_512)
 
@@ -64,14 +62,14 @@ sha = E.decodeUtf8 . hexSha3_512 . B16.encode . E.encodeUtf8
 fileName4Code :: Text -> Text -> Maybe Text -> FilePath
 fileName4Code name source ext = filename
   where
-    dirname = name ¤ "-images"
+    dirname = name <> "-images"
     shaN = sha source
     barename =
-      shaN ¤
+      shaN <>
       (case ext of
          Just "msc" -> ".svg"
          Just "dot" -> ".svg"
-         Just e     -> "." ¤ e
+         Just e     -> "." <> e
          Nothing    -> "")
     filename = T.unpack dirname </> T.unpack barename
 
