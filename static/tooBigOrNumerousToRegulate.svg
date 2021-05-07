@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1.03326,0,0,1.32644,-3.23824,-21.6771)">
+        <path d="M97.366,66.404L97.366,396.488L735.389,396.488" style="fill:none;stroke:black;stroke-width:3.36px;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,20.235,121.599)">
+        <path d="M109.219,364.412C201.924,364.412 266.198,96.723 392.176,97.346C514.457,96.723 579.345,364.412 678.004,364.412" style="fill:none;stroke:black;stroke-width:4px;"/>
+    </g>
+    <g transform="matrix(3.26701,0,0,3.26701,-608.524,-83.4774)">
+        <text x="253.739px" y="43.281px" style="font-family:'Helvetica';font-size:12px;">Feasability of Regulation</text>
+    </g>
+    <g transform="matrix(2.85859,0,0,2.85859,-578.45,-725.793)">
+        <text x="274.14px" y="457.668px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:11.544px;">Number of Firms in Industry</text>
+    </g>
+    <g transform="matrix(1.85083e-16,3.02264,-3.02264,1.85083e-16,1566.96,-141.71)">
+        <text x="69.017px" y="506.135px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:10.918px;">Ef<tspan x="79.135px 82.168px " y="506.135px 506.135px ">fe</tspan>ctiveness of Regulation</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-229.009,174.685)">
+        <text x="346.299px" y="373.203px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:33px;">1</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-64.7268,174.685)">
+        <text x="346.299px" y="373.203px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:33px;">1K</text>
+    </g>
+    <g transform="matrix(1,0,0,1,127.561,174.685)">
+        <text x="346.299px" y="373.203px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:33px;">1M</text>
+    </g>
+    <g transform="matrix(1,0,0,1,322.893,174.685)">
+        <text x="346.299px" y="373.203px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:33px;">1B</text>
+    </g>
+</svg>

@@ -108,6 +108,9 @@ renderAll cblock@(CodeBlock (id, classes, attrs) content)
      in do ensureFile dest
            img <- renderDot content dest
            return $ image img
+  | "sidenote" `elem` classes =
+      let sidenoteClass = ("",["marginnote"],[])
+      in return $ Para $ pure $ Span sidenoteClass $ pure (Str content)
   | otherwise = return cblock
   where
     toTextPairs = Prelude.map (\(f, s) -> (T.pack f, T.pack s))

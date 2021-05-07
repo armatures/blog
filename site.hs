@@ -1,14 +1,14 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import Data.Monoid (mappend)
-import PandocFilterGraphviz (renderAll, stripHeading)
-import Hakyll (applyTemplateList, buildTags, compile, composeRoutes, constField,
-               copyFileCompiler, dateField, defaultContext, defaultHakyllReaderOptions, fromFilePath,
-               defaultHakyllWriterOptions, fromCapture, getRoute, gsubRoute, hakyll, idRoute, itemIdentifier,
-               loadAll, loadAndApplyTemplate, loadBody, makeItem, match, modificationTimeField, mapContext,
-               pandocCompilerWithTransformM, relativizeUrls, route, setExtension, pathField, preprocess,
-               tagsField, tagsRules, templateCompiler, version, Compiler, Context, Identifier, Item, Pattern, Rules, Tags, unsafeCompiler, compressCssCompiler, fromList, pandocCompiler, create, recentFirst, listField, getResourceBody, applyAsTemplate, templateBodyCompiler)
-import Text.Pandoc.Walk (walk, walkM)
+import PandocFilterGraphviz (renderAll)
+import Hakyll (Item, buildTags, compile, constField,
+               copyFileCompiler, dateField, defaultContext, defaultHakyllReaderOptions,
+               defaultHakyllWriterOptions, fromCapture, hakyll, idRoute, itemIdentifier,
+               loadAll, loadAndApplyTemplate, makeItem, match,
+               pandocCompilerWithTransformM, relativizeUrls, route, setExtension,
+               tagsField, tagsRules, Compiler, Context, Tags, unsafeCompiler, compressCssCompiler, fromList, pandocCompiler, create, recentFirst, listField, getResourceBody, applyAsTemplate, templateBodyCompiler)
+import Text.Pandoc.Walk (walkM)
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -106,6 +106,9 @@ postCtx =
 
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
+
+doubleSecond :: Num t => [t] -> [t]
+doubleSecond xs = [x | x <- zipWith (*) xs $ concat (repeat [1,2])]
 
 customPostPandocCompiler :: Compiler (Item String)
 customPostPandocCompiler =

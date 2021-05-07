@@ -8,3 +8,5 @@ extra-deps:
   - gtk2hs-buildtools-0.13.8.0
   - Chart-1.9.1
   - Chart-cairo-1.9.1
+ghc-options:
+  "$everything": -haddock
