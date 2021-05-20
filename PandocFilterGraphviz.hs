@@ -99,29 +99,28 @@ renderMsc src dst =
 renderAll :: Block -> IO Block
 renderAll cblock@(CodeBlock (id, classes, attrs) content)
   | "msc" `elem` classes =
-    let dest = fileName4Code "mscgen" (T.pack content) (Just "msc")
+    let dest = fileName4Code "mscgen" content (Just "msc")
      in do ensureFile dest
-           img <- renderMsc content dest
+           img <- renderMsc (T.unpack content) dest
            return $ image img
   | "graphviz" `elem` classes =
-    let dest = fileName4Code "graphviz" (T.pack content) (Just "dot")
+    let dest = fileName4Code "graphviz" content (Just "dot")
      in do ensureFile dest
-           img <- renderDot content dest
+           img <- renderDot (T.unpack content) dest
            return $ image img
   | "sidenote" `elem` classes =
       let sidenoteClass = ("",["marginnote"],[])
       in return $ Para $ pure $ Span sidenoteClass $ pure (Str content)
   | otherwise = return cblock
   where
-    toTextPairs = Prelude.map (\(f, s) -> (T.pack f, T.pack s))
-    m = M.fromList $ toTextPairs attrs
+    m = M.fromList attrs
     (caption, typedef) = getCaption m
     image img =
       Plain
         [ Image
             (id, classes, attrs)
-            [Str $ T.unpack caption]
-            ("/" </> img, T.unpack caption)
+            [Str caption]
+            (T.pack $ "/" </> img, caption)
         ]
 renderAll x = return x
 
