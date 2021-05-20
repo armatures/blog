@@ -10,7 +10,7 @@ Here is a sidenote. Turns out I think I want this to be inline-able:
 </span>
 
 <span class="marginnote">
-  with two paras?
+  with two paragraphs
 </span>
 
 
