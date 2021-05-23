@@ -2,7 +2,7 @@
   "name": "blog",
   "description": "a blog by armatures",
   "devDependencies": {
-    "netlify-cli": "2.x"
+    "netlify-cli": "3.x"
   },
   "scripts": {
     "watch": "stack exec site watch",
