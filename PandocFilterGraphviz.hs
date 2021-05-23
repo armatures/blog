@@ -32,26 +32,26 @@
 
 module PandocFilterGraphviz where
 
-import           Control.Monad          (unless)
-import           Data.Monoid          ((<>))
-import           Crypto.Hash
+import Control.Monad (unless)
+import Crypto.Hash
+import Data.Monoid ((<>))
 
-import           Data.Byteable          (toBytes)
-import           Data.ByteString        (ByteString)
+import Data.ByteString (ByteString)
 import qualified Data.ByteString.Base16 as B16
-import qualified Data.ByteString.Char8  as C8
+import qualified Data.ByteString.Char8 as C8
+import Data.Byteable (toBytes)
 
-import qualified Data.Map.Strict        as M
-import           Data.Text              as T
-import           Data.Text.Encoding     as E
+import qualified Data.Map.Strict as M
+import Data.Text as T
+import Data.Text.Encoding as E
 
-import           System.Directory
-import           System.Exit
-import           System.FilePath
-import           System.Process         (readProcess, system)
+import System.Directory
+import System.Exit
+import System.FilePath
+import System.Process (readProcess, system)
 
-import           Text.Pandoc
-import           Text.Pandoc.JSON
+import Text.Pandoc
+import Text.Pandoc.JSON
 
 hexSha3_512 :: ByteString -> ByteString
 hexSha3_512 bs = C8.pack $ show (hash bs :: Digest SHA3_512)
@@ -69,15 +69,15 @@ fileName4Code name source ext = filename
       (case ext of
          Just "msc" -> ".svg"
          Just "dot" -> ".svg"
-         Just e     -> "." <> e
-         Nothing    -> "")
+         Just e -> "." <> e
+         Nothing -> "")
     filename = T.unpack dirname </> T.unpack barename
 
 getCaption :: M.Map Text Text -> (Text, Text)
 getCaption m =
   case M.lookup "caption" m of
     Just cap -> (cap, "fig:")
-    Nothing  -> ("", "")
+    Nothing -> ("", "")
 
 ensureFile fp =
   let dir = takeDirectory fp
@@ -85,15 +85,12 @@ ensureFile fp =
         unless exist $ writeFile fp ""
 
 renderDot :: String -> FilePath -> IO FilePath
-renderDot src dst =
-  readProcess "dot" ["-Tsvg", "-o" ++ dst] src >>
-  return dst
+renderDot src dst = readProcess "dot" ["-Tsvg", "-o" ++ dst] src >> return dst
 
 -- Here is some msc rendering stuff
 renderMsc :: String -> FilePath -> IO FilePath
 renderMsc src dst =
-  readProcess "mscgen" ["-Tsvg", "-o" ++ dst] src >>
-  return dst
+  readProcess "mscgen" ["-Tsvg", "-o" ++ dst] src >> return dst
 
 -- and we combine everything into one function
 renderAll :: Block -> IO Block
@@ -108,9 +105,11 @@ renderAll cblock@(CodeBlock (id, classes, attrs) content)
      in do ensureFile dest
            img <- renderDot (T.unpack content) dest
            return $ image img
-  | "sidenote" `elem` classes =
-      let sidenoteClass = ("",["marginnote"],[])
-      in return $ Para $ pure $ Span sidenoteClass $ pure (Str content)
+  | "sidenote" `elem` classes
+    -- it would be great to figure out how to type this inline, rather than necessitating a line break
+   =
+    let sidenoteClass = ("", ["marginnote"], [])
+     in return $ Para $ pure $ Span sidenoteClass $ pure (Str content)
   | otherwise = return cblock
   where
     m = M.fromList attrs
@@ -126,4 +125,4 @@ renderAll x = return x
 
 stripHeading :: Block -> Block
 stripHeading cblock@(Header level att content) = Null
-stripHeading x                                 = x
+stripHeading x = x
