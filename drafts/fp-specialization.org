@@ -1,0 +1,28 @@
+* Likening specialization of programmers to specialization of doctors
+** Yudkowsky describes doctors as underspecialized in Inadequate Equilibria
+*** programmers are underspecialized, as employers guard against scarcity of potential authors in their language
+*** Doctors are underspecialized and over-credentialed, the cost is an inefficient education system
+*** ^ These things don't actually sound very similar.
+
+** Feldman in his talk "why isn't functional programming the norm?" says OO is very fragile in its dominance
+   
+*** It's not that OO is superior, and it's not a given that it will stay most popular
+    
+** further software specialization is possible
+   more productivity is waiting in the land of Haskell and similarly powerful languages
+   lumi has 2 exceptional frontend specialists that know all the details of React
+   I know almost nothing about react
+   We also have a few people that implement an immense number of full-stack features every day, it's mind-blowing
+   
+** the feeling of further specialization is that there is a lot of productivity waiting for me to grow into it
+   There's a very high ceiling
+   Last team I was on, I felt like I had reached the top, and now I have more growing to do
+   
+   
+** How does a person grow like this?
+   Advice I followed: static and dynamic experience, then moving towards functional
+   Currently, i've been writing software professionally for 8+ years, and this job still feels like I have a long way to grow
+   
+** More specialization means more interesting work, and more productivity
+   Deep Work emphasizes how hard this stuff is to measure. I suspect that more repetetive languages look more productive to a naive third party (you don't have to stop to think very often)
+   
