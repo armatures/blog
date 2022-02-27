@@ -1,20 +1,33 @@
 ---
-title: Where to Blog?
-date: "November 25, 2019"
-tags: blogging
+title: Activation Energy is not Net Energy
+date: "February 27, 2022"
+tags: models
 ---
   
-This post compares different blogging options I considered when choosing to put my writing online.
+I often see a failure state that people reach where they beat themselves up for not being productive, and then fail (maybe with abandon) into doing something they don't actually want to do. Getting all the way from [wasting time] to [being productive] is hard. I've had good luck getting myself out of this failure state by imagining a state between the two. This state is restful, and hanging out there is restorative.
 
-My initial candidates were:   
-  
-* [Tumblr](https://www.tumblr.com/): I am familiar with publishing on the site, they have a great interface for publishing multimedia content. It would be easy to filter based on different types of content if I'm interested in posting audio, images, and text. It might be odd to publish long-form blogs on Tumblr, though. I'm not sure if anyone does that.
-* [lesswrong.com](https://www.lesswrong.com/): This is probably the online community I follow most closely, though I haven't gotten my nerve together to post there yet. This is a poor candidate in that I'm interested in writing on broader themes than rationality specifically.
-* [Medium](https://medium.com/): Visitors to Medium expect long-form text posts (unlike Tumblr) on a diversity of topics (unlike lesswrong). I've never posted there before, and reading about it was a little uncomfortable. They are interested in [curating](https://help.medium.com/hc/en-us/sections/360003462873-Distribution) sets of posts they can paywall, promote, and monetize, and I can only imagine that posting there without the intention to be edited and monetized puts me outside of their target authorship.
-* [gwern.net](https://www.gwern.net): Gwern is an inspiration to me, and reading [his thoughts about his own site](https://www.gwern.net/About#long-site) drives home the value in controlling one's own site. He has made a huge investment in his tools and in creating the site he has, and everything is open-source. I could benefit from his substantial investment, and have a clone of a really magnificent creation! This appeals to me more than posting things on a network managed by someone else, because I would retain control over everything, and posting could be as simple as `git push`. However, I expect these tools are bespoke. He [uses hakyll](https://www.gwern.net/About#tools), though doesn't recommend it to a general audience, and though I am decent at Haskell, the idea of learning all the tools he's developed gives me the feeling of using someone else's vim config: it's difficult to discern the where unexpected behavior comes from and very costly investigation and some substantial growing pains may be prerequisites to productive blogging. This feels like a major investment, and though it might be an interesting experiment, if my goal in blogging is to do anything besides learn how to manage a complicated Haskell-based blogging toolchain, something else would likely be a better bet.
-* [Hakyll](https://github.com/jaspervdj/hakyll): I searched DuckDuckGo for "static site generator," and found [a list](https://www.staticgen.com/) of static site generators ordered by GitHub stars. The first 30+ tools were all in various flavors of JavaScript, Ruby, Go, and Python, which initially deflated me. I am not interested in maintaining a website built on dynamically-typed languages. The first tool that actually interested me was Hakyll, after all! This is probably worth looking into a bit further.
-* [elm-pages](https://github.com/dillonkearns/elm-pages): I like Elm. At my last job, I worked in Elm for two years.I hope elm grows more popular as an approachable ML-inspired language and alternative to JavaScript. Dillon Kearns seems legitimate... but this tool is very young. The upside is that Elm is very comfortable to me, and I think that whatever I want to do would be in my most comfortable language. This is probably also worth investigating.
-* PureScript static site generator: I respect some people that really enjoy working in PureScript. If I'm interested in using a static site generator, maybe I could use a language that thrives in the frontend, that has a powerful type system, and that has more friendly tooling (so I've heard) than Haskell. Elm is a little verbose, and I'd like to have typeclasses back, and I've heard PureScript is something like Haskell with less baggage. I thought I'd see what looked good on github: the [GitHub trending page for PureScript](https://github.com/trending/purescript) had nothing listed! I've never actually experienced such a thing. Where do I find popular purescript tools? I decided I'd better give up on that route and pursue a Hakyll site.
+# Activation Energy can be Negative
 
-## Hakyll, Tufte style
-So I landed on Hakyll, and have decided to follow gwern's lead and liberally pull from [Tufte CSS](https://edwardtufte.github.io/tufte-css/). As this is my first post, I am posting it before exploring all the details. I edited my `site.hs` file to serve the font Tufte CSS demands, and edited the file paths in `tufte.css` to reference the font on the path I decided makes sense, and found these small edits to be more cumbersome than I expected, but I'm happy enough with the current results to proceed. I expect it's partly a function of my Haskell being rusty, and I'm very comfortable with paying some overhead of Hakyll hacking if it gets me back into Haskell.
+Activation energy is the amount of effort it takes to initiate action on something. 
+<label for="sn-profit" class="margin-toggle sidenote-number"></label>
+  <input type="checkbox" id="sn-profit" class="margin-toggle">
+  <span class="sidenote">
+This use of activation energy is a generalization of [the same concept applied to chemical reactions in chemistry](https://en.wikipedia.org/wiki/Activation_energy). Once you get enough energy to start some chemical reactions, they'll continue on their own-it's just the "activation" that takes real doing.
+</span>
+You can think of "doing nothing" as taking no energy, and "pursuing my dreams" as taking more energy than that.
+
+Luigi is trying to finish drafting a section of his paper before lunch. It is 10 AM. He plans to take a 10-minute break at 11, and eat around 12 or 12:30. At 10:30, he discovers himself browsing Instagram. "I'm such an idiot! I must have been on here for 20 minutes by now!" he thinks to himself. "There's no way I'm going to get anything done by 11. I'll have barely loaded the context of my work back into my head by then. I basically already spent the leisure time I had planned at 11 anyway, so I'll skip that break to make up for it." If anything, Luigi less rested than before his foray onto social media, and now his task is even more aversive task than before. If he bounced off it before, he's more likely to do it again, now. The rest of Luigi's day has him bouncing between "this is getting even more urgent" and "I have increasing evidence that I can't focus."
+
+## 2 classes of "breaks"
+Sometimes, when trying to do something difficult, a person will run out of steam. Maybe it's time for a walk. After such a restorative action, this person will return to the difficult thing and find and easier than before their break.
+
+Sometimes, the same person runs out of steam, and instead of taking a proper break, they'll check their email, scroll through a social network, or start playing a video game. If they can pull themselves out of this activity (which can be difficult to do), they return to the difficult thing and find it is harder than before their break. Even worse, the person scrolling the social network has often not consciously chosen this activity—their subjective experience was "I was trying something difficult, and then I discovered that had spent 10 minutes on Twitter."
+
+I model these two different types of breaks on a gradient of activation energy.
+- Doing a hard thing you value has positive activation energy: you have to rise to the occasion, which takes some level of exertion.
+- A restorative break deliberately taken is a restful state: "0". In this state you're properly resting, and will store energy until you can once again apply yourself to the hard thing you want to do. I model the other type of break (a break only in that it does not involve working) as an action with negative activation energy. You do not gain energy through it (it is not restful), and it is easier to end up in than your "0" state.
+
+<img src="/static/activationEnergy.png"/>
+
+This model is useful for me in that I can imagine a return to zero as a success I deserve rewarding myself for. If I notice I am left of zero, instead of beating myself up about it, I can set a new goal to get to 0. Once I am back to zero I can orient myself better than when I am negative. This may cost more time than I feel like I have, and accepting the fact that I wasn't resting productively during my "break" can be frustrating. But I've found my internal taskmaster can be counterproductive, and maintaining gentle oscillations between resting and productive works a lot better than riding the rollercoaster between anxious escapism and desperate exertion.
+
